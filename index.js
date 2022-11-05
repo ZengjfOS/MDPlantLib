@@ -3,6 +3,7 @@
 const indentjs = require('./lib/indent.js')
 const tablejs = require('./lib/table.js')
 const plantumljs = require('./lib/plantuml.js')
+const pastejs = require('./lib/paste.js')
 
 function convert2Tree(contentArray, skipLevel) {
     indentjs.listToTreeWithSkip(0, 0, contentArray.length, contentArray, 2, false, skipLevel)
@@ -36,6 +37,10 @@ function convert2SequenceDiagram(contentArray, skipLevel) {
 
     return outputArray
 }
+
+function saveClipboardImage(imagePath, cb) {
+    pastejs.saveClipboardImageToFileAndGetPath(imagePath, cb)
+}
  
 // 向外输入格式转换函数
 module.exports = {
@@ -43,4 +48,5 @@ module.exports = {
     convert2Table,
     convert2Tree,
     revert2List,
+    saveClipboardImage,
 }

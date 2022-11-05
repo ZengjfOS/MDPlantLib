@@ -155,4 +155,21 @@ describe("index", function() {
 
         assert.equal(false, checkFlag)
     })
+
+    it('save image', () => {
+        let checkFlag = false
+
+        indexjs.saveClipboardImage(__dirname + "/output/0002_saved.png", (imagePath, imagePathReturnByScript) => {
+            if (!imagePathReturnByScript) return;
+
+            if (imagePathReturnByScript === 'no image') {
+                checkFlag = false
+            } else {
+                checkFlag = true
+            }
+
+            assert.equal(true, checkFlag)
+        });
+
+    })
 })

@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ZengjfOS/MDPlantLib/issues"
   },
-  "homepage": "https://github.com/ZengjfOS/MDPlantLib#readme"
+  "homepage": "https://github.com/ZengjfOS/MDPlantLib#readme",
+  "dependencies": {
+    "fs-extra": "^10.1.0"
+  }
 }

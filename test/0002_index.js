@@ -73,7 +73,7 @@ describe("index", function() {
 
         let columnInterval = 2
         let skipLeve = contentArray[0].indexOf("* ") / columnInterval
-        indexjs.revert2ListIndent(contentArray, skipLeve)
+        indexjs.revert2Tree(contentArray, skipLeve)
         // console.log(contentArray)
 
         let row = 0
@@ -194,5 +194,73 @@ describe("index", function() {
 
         assert.equal(true, checkFlag)
 
+    })
+
+    it('refresh main readme', () => {
+        let checkFlag = false
+        fs.copyFileSync("test/refers/0008_README.md", "test/output/0008_main_README.md")
+
+        let outputString = indexjs.refreshProjectReadme("test/output/0008_main_README.md", "lib/res/mainProjectTemplate/src")
+        if (outputString.includes("0000| [Template](lib/res/mainProjectTemplate/src/0000_Template/README.md) |"))
+            checkFlag = true
+
+        console.log(outputString)
+
+        assert.equal(true, checkFlag)
+
+    })
+
+    it('refresh sub readme', () => {
+        let checkFlag = false
+        fs.copyFileSync("test/refers/0008_README.md", "test/output/0008_sub_README.md")
+
+        let outputString = indexjs.refreshProjectReadme("test/output/0008_sub_README.md", "lib/res/subProjectTemplate/docs")
+        if (outputString.includes("0001| [template](lib/res/subProjectTemplate/docs/0001_template.md) |"))
+            checkFlag = true
+        console.log(outputString)
+
+        assert.equal(true, checkFlag)
+
+    })
+
+    it('new project', () => {
+        let outputDir = "test/output/project"
+
+        if (fs.existsSync(outputDir))
+            fs.rmSync(outputDir, { recursive: true, force: true });
+
+        fs.mkdirSync(outputDir)
+
+        checkFlag = indexjs.newProject(outputDir, "zengjf")
+
+        assert.equal(true, checkFlag)
+    })
+
+    it('new sub project', () => {
+        let outputDir = "test/output/subproject"
+        let checkFlag = false
+
+        if (fs.existsSync(outputDir))
+            fs.rmSync(outputDir, { recursive: true, force: true });
+
+        indexjs.newSubProject(outputDir)
+        if (fs.existsSync(outputDir + "/README.md"))
+            checkFlag = true
+
+        assert.equal(true, checkFlag)
+    })
+
+    it('new sub project work file', () => {
+        let outputFile = "test/output/0008_work_file.md"
+        let checkFlag = false
+
+        if (fs.existsSync(outputFile))
+            fs.unlinkSync(outputFile)
+
+        indexjs.newSubProjectWorkFile(outputFile)
+        if (fs.existsSync(outputFile))
+            checkFlag = true
+
+        assert.equal(true, checkFlag)
     })
 })

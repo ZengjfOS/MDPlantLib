@@ -5,12 +5,13 @@ const tablejs = require('./lib/table.js')
 const plantumljs = require('./lib/plantuml.js')
 const pastejs = require('./lib/paste.js')
 const listjs = require('./lib/list.js')
+const projectjs = require('./lib/project.js')
 
 function convert2Tree(contentArray, skipLevel) {
     indentjs.listToTreeWithSkip(0, 0, contentArray.length, contentArray, 2, false, skipLevel)
 }
 
-function revert2ListIndent(contentArray, skipLevel) {
+function revert2Tree(contentArray, skipLevel) {
     indentjs.treeToListWithSkip(contentArray, false, 2, skipLevel)
 }
 
@@ -46,13 +47,33 @@ function saveClipboardImage(imagePath, cb) {
 function convert2List(lineText) {
     return listjs.convert2List(lineText)
 }
+
+function refreshProjectReadme(outputFile, subProjectDir) {
+    return projectjs.refreshProjectReadme(outputFile, subProjectDir)
+}
+
+function newProject(outputDir, author) {
+    return projectjs.newProject(outputDir, author)
+}
+
+function newSubProject(outputDir) {
+    return projectjs.newSubProject(outputDir)
+}
+
+function newSubProjectWorkFile(outputFile) {
+    return projectjs.newSubProjectWorkFile(outputFile)
+}
  
 // 向外输入格式转换函数
 module.exports = {
     convert2SequenceDiagram,
     convert2Table,
     convert2Tree,
-    revert2ListIndent,
+    revert2Tree,
     saveClipboardImage,
     convert2List,
+    refreshProjectReadme,
+    newProject,
+    newSubProject,
+    newSubProjectWorkFile,
 }

@@ -102,7 +102,9 @@ Enter one-time password: 59437714
 Logged in as zengjf on https://registry.npmjs.org/.
 ```
 
-npm publish
+* npm pack
+  * 可以提前看一下打包是否可能存在问题
+* npm publish
 
 ```
 npm notice 

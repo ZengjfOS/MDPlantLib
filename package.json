@@ -4,7 +4,7 @@
   "description": "lib for vscode extension MDPlant",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

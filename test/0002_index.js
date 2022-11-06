@@ -73,7 +73,7 @@ describe("index", function() {
 
         let columnInterval = 2
         let skipLeve = contentArray[0].indexOf("* ") / columnInterval
-        indexjs.revert2List(contentArray, skipLeve)
+        indexjs.revert2ListIndent(contentArray, skipLeve)
         // console.log(contentArray)
 
         let row = 0
@@ -170,6 +170,29 @@ describe("index", function() {
 
             assert.equal(true, checkFlag)
         });
+
+    })
+
+    it('convert image with space', () => {
+        let checkFlag = false
+
+        let outputString = indexjs.convert2List("lib/list .png")
+        if (outputString.length != 0 && outputString.includes("]("))
+            checkFlag = true
+
+        assert.equal(true, checkFlag)
+
+    })
+
+
+    it('revert image with space', () => {
+        let checkFlag = false
+
+        let outputString = indexjs.convert2List("![list .js](lib/list%20_%20.png)")
+        if (outputString.length != 0 && !outputString.includes("]("))
+            checkFlag = true
+
+        assert.equal(true, checkFlag)
 
     })
 })

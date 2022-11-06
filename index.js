@@ -4,12 +4,13 @@ const indentjs = require('./lib/indent.js')
 const tablejs = require('./lib/table.js')
 const plantumljs = require('./lib/plantuml.js')
 const pastejs = require('./lib/paste.js')
+const listjs = require('./lib/list.js')
 
 function convert2Tree(contentArray, skipLevel) {
     indentjs.listToTreeWithSkip(0, 0, contentArray.length, contentArray, 2, false, skipLevel)
 }
 
-function revert2List(contentArray, skipLevel) {
+function revert2ListIndent(contentArray, skipLevel) {
     indentjs.treeToListWithSkip(contentArray, false, 2, skipLevel)
 }
 
@@ -41,12 +42,17 @@ function convert2SequenceDiagram(contentArray, skipLevel) {
 function saveClipboardImage(imagePath, cb) {
     pastejs.saveClipboardImageToFileAndGetPath(imagePath, cb)
 }
+
+function convert2List(lineText) {
+    return listjs.convert2List(lineText)
+}
  
 // 向外输入格式转换函数
 module.exports = {
     convert2SequenceDiagram,
     convert2Table,
     convert2Tree,
-    revert2List,
+    revert2ListIndent,
     saveClipboardImage,
+    convert2List,
 }

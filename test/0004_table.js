@@ -1,5 +1,6 @@
 const assert = require('assert')
 const tablejs = require('../lib/table.js')
+require('./lib/log.js')
 
 const configPath = 'test/refers/0004_table.json'
 

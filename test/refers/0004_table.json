@@ -6,7 +6,8 @@
             "链接"
         ],
         "datas": [
-            ["*", "zengjf", {"title":"zengjf", "link": "http://zengjf.fun"}]
+            ["*", "zengjf", {"title":"zengjf", "link": "http://zengjf.fun"}],
+            ["*", "zengjf", [{"title":"zengjf", "link": "http://zengjf.fun"}, {"title":"zengjf", "link": "http://zengjf.fun"}]]
         ]
 
     }

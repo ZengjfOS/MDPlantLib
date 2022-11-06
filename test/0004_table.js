@@ -50,6 +50,8 @@ describe("table", function() {
                 checkFlag = true
         });
 
+        console.log(outputString)
+
         assert.equal(false, checkFlag)
     })
 })

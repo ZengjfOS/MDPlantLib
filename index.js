@@ -66,12 +66,23 @@ function newSubProjectWorkFile(outputFile) {
  
 // 向外输入格式转换函数
 module.exports = {
+    // lib/mdplant.js
     convert2SequenceDiagram,
+
+    // lib/table.js
     convert2Table,
+
+    // lib/indent.js
     convert2Tree,
     revert2Tree,
+
+    // lib/paste.js
     saveClipboardImage,
+
+    // lib/list.js
     convert2List,
+
+    // lib/project.js
     refreshProjectReadme,
     newProject,
     newSubProject,

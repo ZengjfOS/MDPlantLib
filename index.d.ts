@@ -1,0 +1,10 @@
+export function convert2SequenceDiagram(contentArray: any, skipLevel: any): any;
+export function convert2Table(line: any): string;
+export function convert2Tree(contentArray: any, skipLevel: any): void;
+export function revert2Tree(contentArray: any, skipLevel: any): void;
+export function saveClipboardImage(imagePath: any, cb: any): void;
+export function convert2List(lineText: any): string;
+export function refreshProjectReadme(outputFile: any, subProjectDir: any): string;
+export function newProject(outputDir: any, author: any): boolean;
+export function newSubProject(outputDir: any): void;
+export function newSubProjectWorkFile(outputFile: any): void;

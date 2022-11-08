@@ -1,7 +1,7 @@
 {
   "name": "mdplantlib",
-  "version": "0.0.3",
-  "description": "lib for vscode extension MDPlant",
+  "version": "0.0.4",
+  "description": "MDPlantLib is lib for VSCode MDPlant Extension",
   "main": "index.js",
   "scripts": {
     "test": "mocha"

@@ -1,6 +1,7 @@
 const fs = require('fs');
 const assert = require('assert')
 const indexjs = require('../index.js')
+require('./lib/log.js')
 
 const configPath = 'test/refers/0004_table.json'
 const indexList = 'test/refers/0003_indent_list.txt'
@@ -159,18 +160,13 @@ describe("index", function() {
     it('save image', () => {
         let checkFlag = false
 
-        indexjs.saveClipboardImage(__dirname + "/output/0002_saved.png", (imagePath, imagePathReturnByScript) => {
-            if (!imagePathReturnByScript) return;
-
-            if (imagePathReturnByScript === 'no image') {
-                checkFlag = false
-            } else {
-                checkFlag = true
-            }
-
-            assert.equal(true, checkFlag)
-        });
-
+        let output = indexjs.saveClipboardImage(__dirname + "/output/0002_saved.png");
+        if (output.status == true) {
+            checkFlag = true
+        } else {
+            console.log(output)
+        }
+        assert.equal(true, checkFlag)
     })
 
     it('convert image with space', () => {
@@ -200,7 +196,7 @@ describe("index", function() {
         let checkFlag = false
         fs.copyFileSync("test/refers/0008_README.md", "test/output/0008_main_README.md")
 
-        let outputString = indexjs.refreshProjectReadme("test/output/0008_main_README.md", "lib/res/mainProjectTemplate/src")
+        let outputString = indexjs.refreshReadme("test/output/0008_main_README.md", "lib/res/mainProjectTemplate/src")
         if (outputString.includes("0000| [Template](lib/res/mainProjectTemplate/src/0000_Template/README.md) |"))
             checkFlag = true
 
@@ -214,7 +210,7 @@ describe("index", function() {
         let checkFlag = false
         fs.copyFileSync("test/refers/0008_README.md", "test/output/0008_sub_README.md")
 
-        let outputString = indexjs.refreshProjectReadme("test/output/0008_sub_README.md", "lib/res/subProjectTemplate/docs")
+        let outputString = indexjs.refreshReadme("test/output/0008_sub_README.md", "lib/res/subProjectTemplate/docs")
         if (outputString.includes("0001| [template](lib/res/subProjectTemplate/docs/0001_template.md) |"))
             checkFlag = true
         console.log(outputString)
@@ -261,6 +257,269 @@ describe("index", function() {
         if (fs.existsSync(outputFile))
             checkFlag = true
 
+        assert.equal(true, checkFlag)
+    })
+
+    it('path info', () => {
+        let workspaceFolders = [
+                                    {
+                                        "url": {
+                                            "path" : "/home/zengjf/zengjf/github/android"
+                                        },
+                                        "name": "android",
+                                        "index": 0
+                                    
+                                    }
+                                ]
+
+        let checkFlag = false
+        let path = ""
+        let pathInfo = ""
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.dir 
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up"
+                    && pathInfo.subSrcPath == ""
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.dir 
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up"
+                    && pathInfo.subSrcPath == ""
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/images"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.dir 
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up"
+                    && pathInfo.subSrcPath == ""
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/refers"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.dir 
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up"
+                    && pathInfo.subSrcPath == ""
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.dir 
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up"
+                    && pathInfo.subSrcPath == ""
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.dir 
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up"
+                    && pathInfo.subSrcPath == ""
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up/docs"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.dir 
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up"
+                    && pathInfo.subSrcPath == ""
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up/docs/images"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.dir 
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up"
+                    && pathInfo.subSrcPath == ""
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up/docs/refers"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.dir 
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up"
+                    && pathInfo.subSrcPath == ""
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0071_typescript_declare.md"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.file
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up/"
+                    && pathInfo.subSrcPath == "docs"
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/docs/0071_typescript_declare.md"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.file
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == ""
+                    && pathInfo.subSrcPath == "docs"
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/src/0071_typescript_declare.md"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.file
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up/"
+                    && pathInfo.subSrcPath == "src"
+                    && pathInfo.subrelativePath == "src/0071_typescript_declare.md"
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/src/images/0071_typescript_declare.png"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.file
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up/"
+                    && pathInfo.subSrcPath == "src"
+                    && pathInfo.subrelativePath == "src/images/0071_typescript_declare.png"
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/src/refers/0071_typescript_declare.txt"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.file
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up/"
+                    && pathInfo.subSrcPath == "src"
+                    && pathInfo.subrelativePath == "src/refers/0071_typescript_declare.txt"
+                ) {
+            checkFlag = true
+            console.log(pathInfo.subSrcPath)
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0005_bring_up/README.md"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.readme
+                    && pathInfo.mainPath == "src/0002_bring_up/"
+                    && pathInfo.subPath == "src/0002_bring_up/docs/0005_bring_up/"
+                    && pathInfo.subSrcPath == "docs"
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/README.md"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.readme
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == "src/0002_bring_up/"
+                    && pathInfo.subSrcPath == "src"
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android/README.md"
+        pathInfo = indexjs.parsePath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo.status 
+                    && pathInfo.pathType == indexjs.projectPathTypeEnum.readme
+                    && pathInfo.mainPath == ""
+                    && pathInfo.subPath == ""
+                    && pathInfo.subSrcPath == ""
+                ) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+    })
+
+    it('root path', () => {
+        let workspaceFolders = [
+                                    {
+                                        "url": {
+                                            "path" : "/home/zengjf/zengjf/github/android"
+                                        },
+                                        "name": "android",
+                                        "index": 0
+                                    
+                                    }
+                                ]
+
+        let path = "/home/zengjf/zengjf/github/android/src/0002_bring_up"
+        let pathInfo = indexjs.rootPath(workspaceFolders, path)
+        checkFlag = false
+        if (pathInfo == "/home/zengjf/zengjf/github/android") {
+            checkFlag = true
+        }
         assert.equal(true, checkFlag)
     })
 })

@@ -1,21 +1,35 @@
 const assert = require('assert')
 const tablejs = require('../lib/table.js')
+const fs = require("fs")
 require('./lib/log.js')
-
-const configPath = 'test/refers/0004_table.json'
 
 describe("table", function() {
 
-    it('json convert to table', () => {
+    it('refresh main readme', () => {
         let checkFlag = false
+        fs.copyFileSync("test/refers/0008_README.md", "test/output/0008_main_README.md")
 
-        let outputString = tablejs.convertJSON2Table(configPath, "table")
-        outputString.split("\n").forEach(element => {
-            if (!element.includes("|"))
-                checkFlag = true
-        });
+        let outputString = tablejs.refreshReadme("test/output/0008_main_README.md", "lib/res/mainProjectTemplate/src")
+        if (outputString.includes("0000| [Template](lib/res/mainProjectTemplate/src/0000_Template/README.md) |"))
+            checkFlag = true
 
-        assert.equal(false, checkFlag)
+        console.log(outputString)
+
+        assert.equal(true, checkFlag)
+
+    })
+
+    it('refresh sub readme', () => {
+        let checkFlag = false
+        fs.copyFileSync("test/refers/0008_README.md", "test/output/0008_sub_README.md")
+
+        let outputString = tablejs.refreshReadme("test/output/0008_sub_README.md", "lib/res/subProjectTemplate/docs")
+        if (outputString.includes("0001| [template](lib/res/subProjectTemplate/docs/0001_template.md) |"))
+            checkFlag = true
+        console.log(outputString)
+
+        assert.equal(true, checkFlag)
+
     })
 
     it('row*colume convert to table', () => {
@@ -44,6 +58,22 @@ describe("table", function() {
 
     it('table JSON file convert', () => {
         let checkFlag = false
+        let configPath = 'test/refers/0004_table.json'
+
+        let outputString = tablejs.convert2Table("table " + configPath)
+        outputString.split("\n").forEach(element => {
+            if (!element.includes("|"))
+                checkFlag = true
+        });
+
+        console.log(outputString)
+
+        assert.equal(false, checkFlag)
+    })
+
+    it('table CSV file convert', () => {
+        let checkFlag = false
+        let configPath = 'test/refers/0004_table.csv'
 
         let outputString = tablejs.convert2Table("table " + configPath)
         outputString.split("\n").forEach(element => {

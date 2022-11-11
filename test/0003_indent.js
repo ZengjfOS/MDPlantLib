@@ -29,7 +29,7 @@ describe("indent", function() {
 
         let columnInterval = 2
         let skipLeve = contentArray[0].indexOf("* ") / columnInterval
-        indentjs.listToTreeWithSkip(0, 0, contentArray.length, contentArray, columnInterval, false, skipLeve)
+        indentjs.listToTreeWithSkip(contentArray, 0, 0, contentArray.length, columnInterval, false, skipLeve)
         // console.log(contentArray)
 
         let row = 0

@@ -1,23 +1,21 @@
 const assert = require('assert')
 const pastejs = require('../lib/paste.js')
+require('./lib/log.js')
 
 describe("paste", function() {
 
     it('save image', () => {
         let checkFlag = false
 
-        pastejs.saveClipboardImageToFileAndGetPath(__dirname + "/output/0006_saved.png", (imagePath, imagePathReturnByScript) => {
-            if (!imagePathReturnByScript) return;
+        let output = pastejs.saveClipboardImage(__dirname + "/output/0006_saved.png");
+        console.log(output)
+        if (output.status == true) {
+            checkFlag = true
+        } else {
+            console.log(output)
+        }
 
-            if (imagePathReturnByScript === 'no image') {
-                checkFlag = false
-            } else {
-                checkFlag = true
-            }
-
-            assert.equal(true, checkFlag)
-        });
-
+        assert.equal(true, checkFlag)
     })
 
 })

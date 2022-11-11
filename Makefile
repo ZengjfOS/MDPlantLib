@@ -1,12 +1,28 @@
-packageName = mdplantlib
+packageName = MDPlantLib
 
-all: test
+examplejs   = test/0001_example.js
+indexjs     = test/0002_index.js
+indentjs    = test/0003_indent.js
+tablejs     = test/0004_table.js
+plantumljs  = test/0005_plantuml.js
+pastejs     = test/0006_paste.js
+listjs 	    = test/0007_list.js
+projectjs   = test/0008_project.js
 
-test:
-	@mocha
+all: dts
 
-dts:
-	find * -iname "*.d.ts" | xargs -I {} rm {}
-	tsc --allowJs --declaration index.js
+%:
+	@echo "start -> $($@js)"
+	@mocha $($@js)
+	@echo "end   -> $($@js)"
 
-.PHONY: test
+dts: clean
+	@echo "generating all .d.ts file"
+	@-tsc --allowJs --declaration index.js 2>&1 > /dev/null
+	@echo "generated all .d.ts file"
+
+clean:
+	@find * -iname "*.d.ts" | xargs -I {} rm {}
+	@echo "deleted all .d.ts file"
+
+.PHONY: test clean dts

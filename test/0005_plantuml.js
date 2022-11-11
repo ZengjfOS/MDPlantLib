@@ -1,6 +1,7 @@
 const fs = require('fs');
 const assert = require('assert')
 const plantumljs = require('../lib/plantuml.js')
+require('./lib/log.js')
 
 const sequenceList = 'test/refers/0005_sequence_list.txt'
 
@@ -62,4 +63,9 @@ describe("plantuml", function() {
         assert.equal(false, checkFlag)
     })
 
+    it('get http svg image', () => {
+        plantumljs.getHTTPSVGImage('A -> B: Hello', "http://www.plantuml.com/plantuml", "test/output/0005_uml.svg", status => {
+            assert.equal(true, status)
+        })
+    })
 })

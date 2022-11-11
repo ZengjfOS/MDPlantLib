@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ZengjfOS/MDPlantLib#readme",
   "dependencies": {
-    "fs-extra": "^10.1.0"
+    "fs-extra": "^10.1.0",
+    "plantuml-encoder": "^1.4.0"
   }
 }

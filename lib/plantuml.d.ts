@@ -32,6 +32,9 @@ export function getHTTPSVGImage(umlString: string, plantumlServer: string, outpu
  * @param {string[]} textBlock
  * @param {string} rootPath
  * @param {int} cursor
- * @returns {boolean}
+ * @returns
  */
-export function isPlantuml(textBlock: string[], rootPath: string, cursor: int): boolean;
+export function isPlantuml(textBlock: string[], rootPath: string, cursor: int): false | {
+    status: never;
+    info: any;
+};

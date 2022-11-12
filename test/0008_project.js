@@ -309,31 +309,12 @@ describe("project", function() {
         assert.equal(true, checkFlag)
     })
 
-    it('parse line with file path', () => {
-        let path = "/home/zengjf/zengjf/github/android"
-        let lineInfo = projectjs.parseTextBlock(["docs/0002_unit_test.md"], path, 0)
+    it('parseTextBlock', () => {
+        let path 
+        let lineInfo
 
-        checkFlag = false
-        if (lineInfo.status) {
-            checkFlag = true
-        }
-        assert.equal(true, checkFlag)
-    })
-
-    it('parse line with list', () => {
-        let path = "/home/zengjf/zengjf/github/android"
-        let lineInfo = projectjs.parseTextBlock(["* [0002_unit_test.md](docs/0002_unit_test.md)"], path, 0)
-
-        checkFlag = false
-        if (lineInfo.status) {
-            checkFlag = true
-        }
-        assert.equal(true, checkFlag)
-    })
-
-    it('parse line with table', () => {
-        let path = "/home/zengjf/zengjf/github/android"
-        let lineInfo = projectjs.parseTextBlock(["table 2*3"], path, 0)
+        path = "/home/zengjf/zengjf/github/android"
+        lineInfo = projectjs.parseTextBlock(["docs/0002_unit_test.md"], path, 0)
 
         checkFlag = false
         if (lineInfo.status) {
@@ -341,13 +322,41 @@ describe("project", function() {
         }
         assert.equal(true, checkFlag)
 
-        lineInfo = projectjs.parseTextBlock(["table test/refers/0004_table.json"], path, 0)
+        path = "/home/zengjf/zengjf/github/android"
+        lineInfo = projectjs.parseTextBlock(["* [0002_unit_test.md](docs/0002_unit _test.md)"], path, 0)
 
         checkFlag = false
         if (lineInfo.status) {
             checkFlag = true
         }
         assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android"
+        lineInfo = projectjs.parseTextBlock(["0002_unit_test.md docs/0002_在unit_test.md"], path, 0)
+
+        checkFlag = false
+        if (lineInfo.status) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android"
+        lineInfo = projectjs.parseTextBlock(["0002_unit_不test.md http://zengjf.fun/docs/0002_unit_test.md"], path, 0)
+
+        checkFlag = false
+        if (lineInfo.status) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android"
+        lineInfo = projectjs.parseTextBlock(["0002_unit"], path, 0)
+
+        checkFlag = false
+        if (lineInfo.status) {
+            checkFlag = true
+        }
+        assert.equal(false, checkFlag)
     })
 
     it('boundary block', () => {

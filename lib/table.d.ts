@@ -29,6 +29,9 @@ export function convert2Table(lineValue: string): string;
  * @param {string[]} textBlock
  * @param {string} rootPath
  * @param {int} cursor
- * @returns {int}
+ * @returns
  */
-export function isTable(textBlock: string[], rootPath: string, cursor: int): int;
+export function isTable(textBlock: string[], rootPath: string, cursor: int): false | {
+    status: never;
+    info: string;
+};

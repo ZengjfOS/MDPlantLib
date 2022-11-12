@@ -9,6 +9,9 @@ export function convert2List(lineText: string): string;
  * @param {string[]} textBlock
  * @param {string} rootPath
  * @param {int} cursor
- * @returns {int}
+ * @returns
  */
-export function isList(textBlock: string[], rootPath: string, cursor: int): int;
+export function isList(textBlock: string[], rootPath: string, cursor: int): false | {
+    status: boolean;
+    info: string;
+};

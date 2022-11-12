@@ -313,6 +313,8 @@ describe("project", function() {
         let path 
         let lineInfo
 
+        console.log("-----------test list-------------")
+
         path = "/home/zengjf/zengjf/github/android"
         lineInfo = projectjs.parseTextBlock(["docs/0002_unit_test.md"], path, 0)
 
@@ -357,6 +359,44 @@ describe("project", function() {
             checkFlag = true
         }
         assert.equal(false, checkFlag)
+
+        console.log("-----------test table-------------")
+
+        path = "/home/zengjf/zengjf/github/android"
+        lineInfo = projectjs.parseTextBlock(["table 4*5"], path, 0)
+
+        checkFlag = false
+        if (lineInfo.status) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android"
+        lineInfo = projectjs.parseTextBlock(["table test/refers/0004_table.json"], path, 0)
+
+        checkFlag = false
+        if (lineInfo.status) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android"
+        lineInfo = projectjs.parseTextBlock(["zengjf | [](zengjf.fun)"], path, 0)
+
+        checkFlag = false
+        if (lineInfo.status) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android"
+        lineInfo = projectjs.parseTextBlock(["NO.|文件名称|摘要", "zengjf | [](zengjf.fun)"], path, 0)
+
+        checkFlag = false
+        if (lineInfo.status) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
     })
 
     it('boundary block', () => {

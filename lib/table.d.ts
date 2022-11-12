@@ -32,6 +32,6 @@ export function convert2Table(lineValue: string): string;
  * @returns
  */
 export function isTable(textBlock: string[], rootPath: string, cursor: int): false | {
-    status: never;
+    status: boolean;
     info: string;
 };

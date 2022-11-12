@@ -38,6 +38,6 @@ export function revert2Tree(contentArray: string[], skipLevel: int): void;
  * @returns
  */
 export function isIndent(textBlock: string[], rootPath: string, cursor: int): false | {
-    status: never;
-    info: any;
+    status: boolean;
+    info: string;
 };

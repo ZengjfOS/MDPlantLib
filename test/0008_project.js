@@ -398,8 +398,30 @@ describe("project", function() {
         }
         assert.equal(true, checkFlag)
 
+        console.log("-----------test plantuml-------------")
+
         path = "/home/zengjf/zengjf/github/android"
         lineInfo = projectjs.parseTextBlock(["```plantuml", "zengjf | [](zengjf.fun)"], path, 0)
+
+        checkFlag = false
+        if (lineInfo.status) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        console.log("-----------test indent-------------")
+
+        path = "/home/zengjf/zengjf/github/android"
+        lineInfo = projectjs.parseTextBlock(["```", "* add(void)"], path, 0)
+
+        checkFlag = false
+        if (lineInfo.status) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android"
+        lineInfo = projectjs.parseTextBlock(["```", "* add(void)", "  └── file"], path, 0)
 
         checkFlag = false
         if (lineInfo.status) {

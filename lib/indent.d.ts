@@ -30,3 +30,11 @@ export function convert2Tree(contentArray: string[], skipLevel: int): void;
  * @param {int} skipLevel
  */
 export function revert2Tree(contentArray: string[], skipLevel: int): void;
+/**
+ *
+ * @param {string[]} textBlock
+ * @param {string} rootPath
+ * @param {int} cursor
+ * @returns {int}
+ */
+export function isIndent(textBlock: string[], rootPath: string, cursor: int): int;

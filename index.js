@@ -32,6 +32,8 @@ module.exports = {
     newSubProject: projectjs.newSubProject,
     newProject: projectjs.newProject,
     parsePath: projectjs.parsePath,
-    parseLine: projectjs.parseLine,
-    rootPath: projectjs.rootPath,
+    parseTextBlock: projectjs.parseTextBlock,
+    getRootPath: projectjs.getRootPath,
+    isTextBlockBoundary: projectjs.isTextBlockBoundary,
+    projectTextBlockTypeEnum: projectjs.projectTextBlockTypeEnum,
 }

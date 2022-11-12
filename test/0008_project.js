@@ -301,7 +301,7 @@ describe("project", function() {
                                 ]
 
         let path = "/home/zengjf/zengjf/github/android/src/0002_bring_up"
-        let pathInfo = projectjs.rootPath(workspaceFolders, path)
+        let pathInfo = projectjs.getRootPath(workspaceFolders, path)
         checkFlag = false
         if (pathInfo == "/home/zengjf/zengjf/github/android") {
             checkFlag = true
@@ -311,7 +311,7 @@ describe("project", function() {
 
     it('parse line with file path', () => {
         let path = "/home/zengjf/zengjf/github/android"
-        let lineInfo = projectjs.parseLine("docs/0002_unit_test.md", path)
+        let lineInfo = projectjs.parseTextBlock(["docs/0002_unit_test.md"], path, 0)
 
         checkFlag = false
         if (lineInfo.status) {
@@ -322,7 +322,7 @@ describe("project", function() {
 
     it('parse line with list', () => {
         let path = "/home/zengjf/zengjf/github/android"
-        let lineInfo = projectjs.parseLine("* [0002_unit_test.md](docs/0002_unit_test.md)", path)
+        let lineInfo = projectjs.parseTextBlock(["* [0002_unit_test.md](docs/0002_unit_test.md)"], path, 0)
 
         checkFlag = false
         if (lineInfo.status) {
@@ -333,7 +333,7 @@ describe("project", function() {
 
     it('parse line with table', () => {
         let path = "/home/zengjf/zengjf/github/android"
-        let lineInfo = projectjs.parseLine("table 2*3", path)
+        let lineInfo = projectjs.parseTextBlock(["table 2*3"], path, 0)
 
         checkFlag = false
         if (lineInfo.status) {
@@ -341,7 +341,7 @@ describe("project", function() {
         }
         assert.equal(true, checkFlag)
 
-        lineInfo = projectjs.parseLine("table test/refers/0004_table.json", path)
+        lineInfo = projectjs.parseTextBlock(["table test/refers/0004_table.json"], path, 0)
 
         checkFlag = false
         if (lineInfo.status) {
@@ -350,4 +350,29 @@ describe("project", function() {
         assert.equal(true, checkFlag)
     })
 
+    it('boundary block', () => {
+        let checkFlag
+        let boundary
+
+        checkFlag = false
+        boundary = projectjs.isTextBlockBoundary("")
+        if (boundary) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+
+        checkFlag = false
+        boundary = projectjs.isTextBlockBoundary(" 1")
+        if (boundary) {
+            checkFlag = true
+        }
+        assert.equal(false, checkFlag)
+
+        checkFlag = false
+        boundary = projectjs.isTextBlockBoundary("```")
+        if (boundary) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+    })
 })

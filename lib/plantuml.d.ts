@@ -27,3 +27,11 @@ export function convert2SequenceDiagram(contentArray: string[], skipLevel: int):
  * @returns
  */
 export function getHTTPSVGImage(umlString: string, plantumlServer: string, outputPath: string, cb: Function): void;
+/**
+ *
+ * @param {string[]} textBlock
+ * @param {string} rootPath
+ * @param {int} cursor
+ * @returns {boolean}
+ */
+export function isPlantuml(textBlock: string[], rootPath: string, cursor: int): boolean;

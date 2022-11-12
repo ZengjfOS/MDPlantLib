@@ -515,7 +515,7 @@ describe("index", function() {
                                 ]
 
         let path = "/home/zengjf/zengjf/github/android/src/0002_bring_up"
-        let pathInfo = indexjs.rootPath(workspaceFolders, path)
+        let pathInfo = indexjs.getRootPath(workspaceFolders, path)
         checkFlag = false
         if (pathInfo == "/home/zengjf/zengjf/github/android") {
             checkFlag = true

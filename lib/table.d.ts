@@ -24,3 +24,11 @@ export function convertRowColume2Table(lineValue: string): string;
  * @returns {string}
  */
 export function convert2Table(lineValue: string): string;
+/**
+ *
+ * @param {string[]} textBlock
+ * @param {string} rootPath
+ * @param {int} cursor
+ * @returns {int}
+ */
+export function isTable(textBlock: string[], rootPath: string, cursor: int): int;

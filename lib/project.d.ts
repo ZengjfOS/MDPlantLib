@@ -21,7 +21,7 @@ export function newSubProjectWorkFile(outputFile: string): void;
  * @param {string} filePath
  * @returns {string}
  */
-export function rootPath(workspaceFolders: workspaceFolder[], filePath: string): string;
+export function getRootPath(workspaceFolders: workspaceFolder[], filePath: string): string;
 /**
  *
  * @param {workspaceFolder[]} workspaceFolders
@@ -37,8 +37,24 @@ export namespace projectPathTypeEnum {
 }
 /**
  *
- * @param {string} lineText
+ * @param {string[]} textBlock
  * @param {string} rootPath
+ * @param {int} cursor
  * @returns {int}
  */
-export function parseLine(lineText: string, rootPath: string): int;
+export function parseTextBlock(textBlock: string[], rootPath: string, cursor: int): int;
+/**
+ *
+ * @param {string} lineText
+ */
+export function isTextBlockBoundary(lineText: string): boolean;
+export namespace projectTextBlockTypeEnum {
+    const none_1: number;
+    export { none_1 as none };
+    const file_1: number;
+    export { file_1 as file };
+    export const list: number;
+    export const table: number;
+    export const plantuml: number;
+    export const indent: number;
+}

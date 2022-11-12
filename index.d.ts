@@ -21,5 +21,14 @@ export const newSubProjectWorkFile: typeof projectjs.newSubProjectWorkFile;
 export const newSubProject: typeof projectjs.newSubProject;
 export const newProject: typeof projectjs.newProject;
 export const parsePath: typeof projectjs.parsePath;
-export const parseLine: typeof projectjs.parseLine;
-export const rootPath: typeof projectjs.rootPath;
+export const parseTextBlock: typeof projectjs.parseTextBlock;
+export const getRootPath: typeof projectjs.getRootPath;
+export const isTextBlockBoundary: typeof projectjs.isTextBlockBoundary;
+export const projectTextBlockTypeEnum: {
+    none: number;
+    file: number;
+    list: number;
+    table: number;
+    plantuml: number;
+    indent: number;
+};

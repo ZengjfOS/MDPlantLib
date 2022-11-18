@@ -8,6 +8,7 @@ plantumljs  = test/0005_plantuml.js
 pastejs     = test/0006_paste.js
 listjs 	    = test/0007_list.js
 projectjs   = test/0008_project.js
+menujs      = test/0009_menu.js
 
 all: dts
 

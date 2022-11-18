@@ -8,10 +8,11 @@ export function convert2List(lineText: string): string;
  *
  * @param {string[]} textBlock
  * @param {string} rootPath
- * @param {int} cursor
+ * @param {number} cursorOffset
  * @returns
  */
-export function isList(textBlock: string[], rootPath: string, cursor: int): false | {
+export function isList(textBlock: string[], rootPath: string, cursorOffset: number): false | {
     status: boolean;
+    error: boolean;
     info: string;
 };

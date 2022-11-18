@@ -47,23 +47,13 @@ describe("project", function() {
     })
 
     it('path info', () => {
-        let workspaceFolders = [
-                                    {
-                                        "url": {
-                                            "path" : "/home/zengjf/zengjf/github/android"
-                                        },
-                                        "name": "android",
-                                        "index": 0
-                                    
-                                    }
-                                ]
-
+        let workspaceFolder = "/home/zengjf/zengjf/github/android"
         let checkFlag = false
         let path = ""
         let pathInfo = ""
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.dir 
@@ -76,50 +66,50 @@ describe("project", function() {
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.dir 
                     && pathInfo.mainPath == ""
                     && pathInfo.subPath == "src/0002_bring_up"
-                    && pathInfo.subSrcPath == ""
+                    && pathInfo.subSrcPath == "docs"
                 ) {
             checkFlag = true
         }
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/images"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.dir 
                     && pathInfo.mainPath == ""
                     && pathInfo.subPath == "src/0002_bring_up"
-                    && pathInfo.subSrcPath == ""
+                    && pathInfo.subSrcPath == "docs"
                 ) {
             checkFlag = true
         }
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/refers"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.dir 
                     && pathInfo.mainPath == ""
                     && pathInfo.subPath == "src/0002_bring_up"
-                    && pathInfo.subSrcPath == ""
+                    && pathInfo.subSrcPath == "docs"
                 ) {
             checkFlag = true
         }
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.dir 
-                    && pathInfo.mainPath == ""
+                    && pathInfo.mainPath == "src/0002_bring_up/"
                     && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up"
                     && pathInfo.subSrcPath == ""
                 ) {
@@ -128,11 +118,11 @@ describe("project", function() {
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.dir 
-                    && pathInfo.mainPath == ""
+                    && pathInfo.mainPath == "src/0002_bring_up/docs/0003_bring_up/"
                     && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up"
                     && pathInfo.subSrcPath == ""
                 ) {
@@ -141,46 +131,46 @@ describe("project", function() {
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up/docs"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.dir 
-                    && pathInfo.mainPath == ""
+                    && pathInfo.mainPath == "src/0002_bring_up/docs/0003_bring_up/"
                     && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up"
-                    && pathInfo.subSrcPath == ""
+                    && pathInfo.subSrcPath == "docs"
                 ) {
             checkFlag = true
         }
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up/docs/images"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.dir 
-                    && pathInfo.mainPath == ""
+                    && pathInfo.mainPath == "src/0002_bring_up/docs/0003_bring_up/"
                     && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up"
-                    && pathInfo.subSrcPath == ""
+                    && pathInfo.subSrcPath == "docs"
                 ) {
             checkFlag = true
         }
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up/docs/refers"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.dir 
-                    && pathInfo.mainPath == ""
+                    && pathInfo.mainPath == "src/0002_bring_up/docs/0003_bring_up/"
                     && pathInfo.subPath == "src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up"
-                    && pathInfo.subSrcPath == ""
+                    && pathInfo.subSrcPath == "docs"
                 ) {
             checkFlag = true
         }
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0071_typescript_declare.md"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.file
@@ -193,7 +183,7 @@ describe("project", function() {
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/docs/0071_typescript_declare.md"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.file
@@ -206,7 +196,7 @@ describe("project", function() {
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/src/0071_typescript_declare.md"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.file
@@ -220,7 +210,7 @@ describe("project", function() {
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/src/images/0071_typescript_declare.png"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.file
@@ -234,7 +224,7 @@ describe("project", function() {
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/src/refers/0071_typescript_declare.txt"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.file
@@ -249,7 +239,7 @@ describe("project", function() {
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0005_bring_up/README.md"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.readme
@@ -262,7 +252,7 @@ describe("project", function() {
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/src/0002_bring_up/README.md"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.readme
@@ -275,7 +265,7 @@ describe("project", function() {
         assert.equal(true, checkFlag)
 
         path = "/home/zengjf/zengjf/github/android/README.md"
-        pathInfo = projectjs.parsePath(workspaceFolders, path)
+        pathInfo = projectjs.parsePath(workspaceFolder, path)
         checkFlag = false
         if (pathInfo.status 
                     && pathInfo.pathType == projectjs.projectPathTypeEnum.readme
@@ -283,27 +273,6 @@ describe("project", function() {
                     && pathInfo.subPath == ""
                     && pathInfo.subSrcPath == ""
                 ) {
-            checkFlag = true
-        }
-        assert.equal(true, checkFlag)
-    })
-
-    it('root path', () => {
-        let workspaceFolders = [
-                                    {
-                                        "url": {
-                                            "path" : "/home/zengjf/zengjf/github/android"
-                                        },
-                                        "name": "android",
-                                        "index": 0
-                                    
-                                    }
-                                ]
-
-        let path = "/home/zengjf/zengjf/github/android/src/0002_bring_up"
-        let pathInfo = projectjs.getRootPath(workspaceFolders, path)
-        checkFlag = false
-        if (pathInfo == "/home/zengjf/zengjf/github/android") {
             checkFlag = true
         }
         assert.equal(true, checkFlag)

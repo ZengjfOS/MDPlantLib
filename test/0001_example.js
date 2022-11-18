@@ -1,4 +1,6 @@
 const assert = require('assert')
+const mdplantlibtest = require('./lib/MDPlantLibTest')
+require('./lib/log.js')
 
 describe("test example", function() {
 
@@ -22,5 +24,15 @@ describe("test example", function() {
     it('check value', () => {
         assert.equal(1, 1)
         console.log("check " + globalVar)
+    })
+
+    it('check list', () => {
+        console.log("start check list")
+        mdplantlibtest.MDPlantLibTestSample("test/refers/0001_list.json", "dataset", data => {
+            console.log(data)
+
+            return true
+        })
+        console.log("end check list")
     })
 })

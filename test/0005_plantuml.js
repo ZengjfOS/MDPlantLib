@@ -64,7 +64,7 @@ describe("plantuml", function() {
     })
 
     it('get http svg image', () => {
-        plantumljs.getHTTPSVGImage('A -> B: Hello', "http://www.plantuml.com/plantuml", "test/output/0005_uml.svg", status => {
+        plantumljs.getHTTPPlantumlImage('A -> B: Hello', "http://www.plantuml.com/plantuml", "png", "test/output/0005_uml.png", status => {
             assert.equal(true, status)
         })
     })

@@ -6,15 +6,18 @@ const plantumljs = require('./lib/plantuml.js')
 const pastejs = require('./lib/paste.js')
 const listjs = require('./lib/list.js')
 const projectjs = require('./lib/project.js')
+const menujs = require('./lib/menu.js')
 
 // 向外输入格式转换函数
 module.exports = {
     // lib/mdplant.js
     convert2SequenceDiagram: plantumljs.convert2SequenceDiagram,
+    getHTTPPlantumlImage: plantumljs.getHTTPPlantumlImage,
 
     // lib/table.js
     convert2Table: tablejs.convert2Table,
-    refreshReadme: tablejs.refreshReadme,
+    refreshReadmeDocsTable: tablejs.refreshReadmeDocsTable,
+    generateIndexTable: tablejs.generateIndexTable,
 
     // lib/indent.js
     convert2Tree: indentjs.convert2Tree,
@@ -33,7 +36,9 @@ module.exports = {
     newProject: projectjs.newProject,
     parsePath: projectjs.parsePath,
     parseTextBlock: projectjs.parseTextBlock,
-    getRootPath: projectjs.getRootPath,
     isTextBlockBoundary: projectjs.isTextBlockBoundary,
     projectTextBlockTypeEnum: projectjs.projectTextBlockTypeEnum,
+
+    // lib/menu.js
+    generateMenu: menujs.generateMenu,
 }

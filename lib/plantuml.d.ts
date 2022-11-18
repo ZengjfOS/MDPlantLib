@@ -1,40 +1,41 @@
 /**
  *
- * @param {int} level
- * @param {int} start
- * @param {int} end
+ * @param {number} level
+ * @param {number} start
+ * @param {number} end
  * @param {string[]} contentArray
- * @param {int} columnInterval
+ * @param {number} columnInterval
  * @param {boolean} debug
- * @param {int} skipLevel
+ * @param {number} skipLevel
  * @param {string[]} preActor
  * @returns
  */
-export function listToSequenceDiagramWithSkip(level: int, start: int, end: int, contentArray: string[], columnInterval: int, debug: boolean, skipLevel: int, preActor?: string[]): void;
+export function listToSequenceDiagramWithSkip(level: number, start: number, end: number, contentArray: string[], columnInterval: number, debug: boolean, skipLevel: number, preActor?: string[]): void;
 /**
  *
  * @param {string[]} contentArray
- * @param {int} skipLevel
+ * @param {number} skipLevel
  * @returns {string[]}
  */
-export function convert2SequenceDiagram(contentArray: string[], skipLevel: int): string[];
+export function convert2SequenceDiagram(contentArray: string[], skipLevel: number): string[];
 /**
  *
  * @param {string} umlString
  * @param {string} plantumlServer
+ * @param {string} suffix
  * @param {string} outputPath
- * @param {function} cb
- * @returns
+ * @param {(status: boolean) => void} cb
  */
-export function getHTTPSVGImage(umlString: string, plantumlServer: string, outputPath: string, cb: Function): void;
+export function getHTTPPlantumlImage(umlString: string, plantumlServer: string, suffix: string, outputPath: string, cb: (status: boolean) => void): void;
 /**
  *
  * @param {string[]} textBlock
  * @param {string} rootPath
- * @param {int} cursor
+ * @param {number} cursorOffset
  * @returns
  */
-export function isPlantuml(textBlock: string[], rootPath: string, cursor: int): false | {
+export function isPlantuml(textBlock: string[], rootPath: string, cursorOffset: number): false | {
     status: boolean;
+    error: boolean;
     info: string;
 };

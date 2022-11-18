@@ -94,4 +94,41 @@ describe("list", function() {
         assert.equal(true, checkFlag)
 
     })
+
+    it('isList', () => {
+        let checkFlag = false
+        let outputString
+
+        outputString = listjs.isList(["tt src/0002_tt/README.md"], "", 0)
+        console.log(outputString)
+        if (outputString.status)
+            checkFlag = true
+
+        assert.equal(true, checkFlag)
+
+        checkFlag = false
+        outputString = listjs.isList(["table src/0002_tt/README.json"], "", 0)
+        console.log(outputString)
+        if (outputString.status)
+            checkFlag = true
+
+        assert.equal(false, checkFlag)
+
+        checkFlag = false
+        outputString = listjs.isList(["src/0002_tt/README.json"], "", 0)
+        console.log(outputString)
+        if (outputString.status)
+            checkFlag = true
+
+        assert.equal(true, checkFlag)
+
+        path = "/home/zengjf/zengjf/github/android"
+        lineInfo = listjs.isList(["docs/0002_unit_test.md"], path, 0)
+
+        checkFlag = false
+        if (lineInfo.status) {
+            checkFlag = true
+        }
+        assert.equal(true, checkFlag)
+    })
 })

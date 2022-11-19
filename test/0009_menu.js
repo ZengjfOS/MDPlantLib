@@ -1,7 +1,10 @@
 const assert = require('assert')
-const menujs = require('../lib/menu.js')
 const fs = require("fs")
-require('./lib/log.js')
+const menujs = require('../lib/menu.js')
+const loggerjs = require("../lib/logger")
+loggerjs.Logger.logFile(__dirname + '/output/debug.log')
+
+const logger = new loggerjs.Logger("menu test")
 
 describe("menu", function() {
 
@@ -18,7 +21,7 @@ describe("menu", function() {
             }
         }
 
-        console.log(outputString)
+        logger.info(outputString)
 
         assert.equal(false, checkFlag)
 

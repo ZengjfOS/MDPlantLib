@@ -1,6 +1,10 @@
 const fs = require('fs');
 const assert = require('assert')
 const indentjs = require('../lib/indent.js')
+const loggerjs = require("../lib/logger")
+loggerjs.Logger.logFile(__dirname + '/output/debug.log')
+
+const logger = new loggerjs.Logger("indent test")
 
 const indentList = 'test/refers/0003_indent_list.txt'
 const indentTree = 'test/refers/0003_indent_tree.txt'
@@ -19,9 +23,9 @@ describe("indent", function() {
                     contentArray.push(element.replace(/\t/g, "    "))
             })
 
-            // console.log(contentArray)
+            // logger.info(contentArray)
         } catch (err) {
-            console.log(`Error reading file from disk: ${err}`);
+            logger.info(`Error reading file from disk: ${err}`);
         }
 
         if (contentArray.length == 0)
@@ -30,7 +34,7 @@ describe("indent", function() {
         let columnInterval = 2
         let skipLeve = contentArray[0].indexOf("* ") / columnInterval
         indentjs.listToTreeWithSkip(contentArray, 0, 0, contentArray.length, columnInterval, false, skipLeve)
-        // console.log(contentArray)
+        // logger.info(contentArray)
 
         let row = 0
         contentArray.forEach(element => {
@@ -61,9 +65,9 @@ describe("indent", function() {
                     contentArray.push(element.replace(/\t/g, "    "))
             })
 
-            // console.log(contentArray)
+            // logger.info(contentArray)
         } catch (err) {
-            console.log(`Error reading file from disk: ${err}`);
+            logger.info(`Error reading file from disk: ${err}`);
         }
 
         if (contentArray.length == 0)
@@ -72,7 +76,7 @@ describe("indent", function() {
         let columnInterval = 2
         let skipLeve = contentArray[0].indexOf("* ") / columnInterval
         indentjs.treeToListWithSkip(contentArray, false, columnInterval, skipLeve)
-        // console.log(contentArray)
+        // logger.info(contentArray)
 
         contentArray.forEach(element => {
             if (!element.includes("* "))
@@ -80,5 +84,17 @@ describe("indent", function() {
         });
 
         assert.equal(false, checkFlag)
+    })
+
+    it('is indent', () => {
+        let checkFlag = false
+        let contentArray = ["```", "* file", "  * test"]
+
+        let output = indentjs.isIndent(contentArray, "", 0)
+        logger.info(output)
+        if (output.status)
+            checkFlag = true
+
+        assert.equal(true, checkFlag)
     })
 })

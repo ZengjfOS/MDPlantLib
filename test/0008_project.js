@@ -1,7 +1,10 @@
 const assert = require('assert')
 const projectjs = require('../lib/project.js')
 const fs = require("fs")
-require('./lib/log.js')
+const loggerjs = require("../lib/logger")
+loggerjs.Logger.logFile(__dirname + '/output/debug.log')
+
+const logger = new loggerjs.Logger("project test")
 
 describe("project", function() {
 
@@ -234,7 +237,7 @@ describe("project", function() {
                     && pathInfo.subrelativePath == "src/refers/0071_typescript_declare.txt"
                 ) {
             checkFlag = true
-            console.log(pathInfo.subSrcPath)
+            logger.info(pathInfo.subSrcPath)
         }
         assert.equal(true, checkFlag)
 
@@ -282,7 +285,7 @@ describe("project", function() {
         let path 
         let lineInfo
 
-        console.log("-----------test list-------------")
+        logger.info("-----------test list-------------")
 
         path = "/home/zengjf/zengjf/github/android"
         lineInfo = projectjs.parseTextBlock(["docs/0002_unit_test.md"], path, 0)
@@ -329,7 +332,7 @@ describe("project", function() {
         }
         assert.equal(false, checkFlag)
 
-        console.log("-----------test table-------------")
+        logger.info("-----------test table-------------")
 
         path = "/home/zengjf/zengjf/github/android"
         lineInfo = projectjs.parseTextBlock(["table 4*5"], path, 0)
@@ -367,7 +370,7 @@ describe("project", function() {
         }
         assert.equal(true, checkFlag)
 
-        console.log("-----------test plantuml-------------")
+        logger.info("-----------test plantuml-------------")
 
         path = "/home/zengjf/zengjf/github/android"
         lineInfo = projectjs.parseTextBlock(["```plantuml", "zengjf | [](zengjf.fun)"], path, 0)
@@ -378,7 +381,7 @@ describe("project", function() {
         }
         assert.equal(true, checkFlag)
 
-        console.log("-----------test indent-------------")
+        logger.info("-----------test indent-------------")
 
         path = "/home/zengjf/zengjf/github/android"
         lineInfo = projectjs.parseTextBlock(["```", "* add(void)"], path, 0)

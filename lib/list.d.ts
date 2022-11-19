@@ -11,7 +11,7 @@ export function convert2List(lineText: string): string;
  * @param {number} cursorOffset
  * @returns
  */
-export function isList(textBlock: string[], rootPath: string, cursorOffset: number): false | {
+export function isList(textBlock: string[], rootPath: string, cursorOffset: number): {
     status: boolean;
     error: boolean;
     info: string;

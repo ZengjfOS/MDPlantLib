@@ -37,7 +37,7 @@ export function revert2Tree(contentArray: string[], skipLevel: number): void;
  * @param {number} cursorOffset
  * @returns
  */
-export function isIndent(textBlock: string[], rootPath: string, cursorOffset: number): false | {
+export function isIndent(textBlock: string[], rootPath: string, cursorOffset: number): {
     status: boolean;
     error: boolean;
     info: string;

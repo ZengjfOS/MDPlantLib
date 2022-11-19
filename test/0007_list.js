@@ -1,6 +1,9 @@
 const assert = require('assert')
 const listjs = require('../lib/list.js')
-require('./lib/log.js')
+const loggerjs = require("../lib/logger")
+loggerjs.Logger.logFile(__dirname + '/output/debug.log')
+
+const logger = new loggerjs.Logger("list test")
 
 describe("list", function() {
 
@@ -100,7 +103,7 @@ describe("list", function() {
         let outputString
 
         outputString = listjs.isList(["tt src/0002_tt/README.md"], "", 0)
-        console.log(outputString)
+        logger.info(outputString)
         if (outputString.status)
             checkFlag = true
 
@@ -108,7 +111,7 @@ describe("list", function() {
 
         checkFlag = false
         outputString = listjs.isList(["table src/0002_tt/README.json"], "", 0)
-        console.log(outputString)
+        logger.info(outputString)
         if (outputString.status)
             checkFlag = true
 
@@ -116,7 +119,7 @@ describe("list", function() {
 
         checkFlag = false
         outputString = listjs.isList(["src/0002_tt/README.json"], "", 0)
-        console.log(outputString)
+        logger.info(outputString)
         if (outputString.status)
             checkFlag = true
 

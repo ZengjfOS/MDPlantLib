@@ -1,6 +1,9 @@
 const assert = require('assert')
 const pastejs = require('../lib/paste.js')
-require('./lib/log.js')
+const loggerjs = require("../lib/logger")
+loggerjs.Logger.logFile(__dirname + '/output/debug.log')
+
+const logger = new loggerjs.Logger("paste test")
 
 describe("paste", function() {
 
@@ -8,11 +11,11 @@ describe("paste", function() {
         let checkFlag = false
 
         let output = pastejs.saveClipboardImage(__dirname + "/output/0006_saved.png");
-        console.log(output)
+        logger.info(output)
         if (output.status == true) {
             checkFlag = true
         } else {
-            console.log(output)
+            logger.info(output)
         }
 
         assert.equal(true, checkFlag)

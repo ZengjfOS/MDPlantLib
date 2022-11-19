@@ -5,6 +5,7 @@ import pastejs = require("./lib/paste.js");
 import listjs = require("./lib/list.js");
 import projectjs = require("./lib/project.js");
 import menujs = require("./lib/menu.js");
+import loggerjs = require("./lib/logger.js");
 export const convert2SequenceDiagram: typeof plantumljs.convert2SequenceDiagram;
 export const getHTTPPlantumlImage: typeof plantumljs.getHTTPPlantumlImage;
 export const convert2Table: typeof tablejs.convert2Table;
@@ -35,3 +36,4 @@ export const projectTextBlockTypeEnum: {
     indent: number;
 };
 export const generateMenu: typeof menujs.generateMenu;
+export const Logger: typeof loggerjs.Logger;

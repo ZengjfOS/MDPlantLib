@@ -1,12 +1,15 @@
 const fs = require('fs');
 const assert = require('assert')
 const indexjs = require('../index.js')
-require('./lib/log.js')
 
 const configPath = 'test/refers/0004_table.json'
 const indexList = 'test/refers/0003_indent_list.txt'
 const indexTree = 'test/refers/0003_indent_tree.txt'
 const sequenceList = 'test/refers/0005_sequence_list.txt'
+const loggerjs = require("../lib/logger")
+loggerjs.Logger.logFile(__dirname + '/output/debug.log')
+
+const logger = new loggerjs.Logger("index test")
 
 describe("index", function() {
 
@@ -22,9 +25,9 @@ describe("index", function() {
                     contentArray.push(element.replace(/\t/g, "    "))
             })
 
-            // console.log(contentArray)
+            // logger.info(contentArray)
         } catch (err) {
-            console.log(`Error reading file from disk: ${err}`);
+            logger.info(`Error reading file from disk: ${err}`);
         }
 
         if (contentArray.length == 0)
@@ -33,7 +36,7 @@ describe("index", function() {
         let columnInterval = 2
         let skipLeve = contentArray[0].indexOf("* ") / columnInterval
         indexjs.convert2Tree(contentArray, skipLeve)
-        // console.log(contentArray)
+        // logger.info(contentArray)
 
         let row = 0
         contentArray.forEach(element => {
@@ -64,9 +67,9 @@ describe("index", function() {
                     contentArray.push(element.replace(/\t/g, "    "))
             })
 
-            // console.log(contentArray)
+            // logger.info(contentArray)
         } catch (err) {
-            console.log(`Error reading file from disk: ${err}`);
+            logger.info(`Error reading file from disk: ${err}`);
         }
 
         if (contentArray.length == 0)
@@ -75,7 +78,7 @@ describe("index", function() {
         let columnInterval = 2
         let skipLeve = contentArray[0].indexOf("* ") / columnInterval
         indexjs.revert2Tree(contentArray, skipLeve)
-        // console.log(contentArray)
+        // logger.info(contentArray)
 
         let row = 0
         contentArray.forEach(element => {
@@ -122,9 +125,9 @@ describe("index", function() {
                     contentArray.push(element.replace(/\t/g, "    "))
             })
 
-            // console.log(contentArray)
+            // logger.info(contentArray)
         } catch (err) {
-            console.log(`Error reading file from disk: ${err}`);
+            logger.info(`Error reading file from disk: ${err}`);
         }
 
         if (contentArray.length == 0)
@@ -135,7 +138,7 @@ describe("index", function() {
         indexjs.convert2SequenceDiagram(contentArray, skipLevel)
 
         // for (i = 1; i < contentArray.length; i++) {
-        //     console.log(contentArray[i])
+        //     logger.info(contentArray[i])
         // }
 
         let row = 0
@@ -147,7 +150,7 @@ describe("index", function() {
             }
 
             if (!element.includes("->")) {
-                console.log(element)
+                logger.info(element)
                 checkFlag = true
             }
             
@@ -164,7 +167,7 @@ describe("index", function() {
         if (output.status == true) {
             checkFlag = true
         } else {
-            console.log(output)
+            logger.info(output)
         }
         assert.equal(true, checkFlag)
     })

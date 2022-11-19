@@ -6,6 +6,8 @@ MDPlantLib is lib for VSCode MDPlant Extension
 
 NO.|文件名称|摘要
 :--:|:--|:--
+0008| [console_log](docs/0008_console_log.md) | 将终端log保存到文件
+0007| [console_color](docs/0007_console_color.md) | 终端颜色
 0006| [code_comments](docs/0006_code_comments.md) | 文档注释的文案部分可使用 Markdown 扩展语法
 0005| [PlantUML_Text_Encoding](docs/0005_PlantUML_Text_Encoding.md) | PLantUML http请求生成图片
 0004| [npm_install_local_package](docs/0004_npm_install_local_package.md) | MDPlant直接使用MDPlantLib调试

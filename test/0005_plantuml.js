@@ -1,7 +1,10 @@
 const fs = require('fs');
 const assert = require('assert')
 const plantumljs = require('../lib/plantuml.js')
-require('./lib/log.js')
+const loggerjs = require("../lib/logger")
+loggerjs.Logger.logFile(__dirname + '/output/debug.log')
+
+const logger = new loggerjs.Logger("plantuml test")
 
 const sequenceList = 'test/refers/0005_sequence_list.txt'
 
@@ -19,9 +22,9 @@ describe("plantuml", function() {
                     contentArray.push(element.replace(/\t/g, "    "))
             })
 
-            // console.log(contentArray)
+            // logger.info(contentArray)
         } catch (err) {
-            console.log(`Error reading file from disk: ${err}`);
+            logger.info(`Error reading file from disk: ${err}`);
         }
 
         if (contentArray.length == 0)
@@ -41,7 +44,7 @@ describe("plantuml", function() {
                 contentArray[i] = contentArray[i].replace(/<<enterspace_start>>/g, "").replace(/<<enterspace_end>>/g, "\n")
             }
 
-            // console.log(contentArray[i])
+            // logger.info(contentArray[i])
         }
 
         let row = 0
@@ -53,7 +56,7 @@ describe("plantuml", function() {
             }
 
             if (!element.includes("->")) {
-                // console.log(element)
+                // logger.info(element)
                 checkFlag = true
             }
             

@@ -1,7 +1,10 @@
 const assert = require('assert')
 const tablejs = require('../lib/table.js')
 const fs = require("fs")
-require('./lib/log.js')
+const loggerjs = require("../lib/logger")
+loggerjs.Logger.logFile(__dirname + '/output/debug.log')
+
+const logger = new loggerjs.Logger("table test")
 
 describe("table", function() {
 
@@ -13,7 +16,7 @@ describe("table", function() {
         if (outputString.includes("0000 | [Template](src/0000_Template/README.md)"))
             checkFlag = true
 
-        console.log(outputString)
+        logger.info(outputString)
 
         assert.equal(true, checkFlag)
 
@@ -26,7 +29,7 @@ describe("table", function() {
         let outputString = tablejs.refreshReadmeDocsTable("test/output/0008_sub_README.md", "lib/res/subProjectTemplate/docs")
         if (outputString.includes("0001 | [template](docs/0001_template.md)"))
             checkFlag = true
-        console.log(outputString)
+        logger.info(outputString)
 
         assert.equal(true, checkFlag)
 
@@ -66,7 +69,7 @@ describe("table", function() {
                 checkFlag = true
         });
 
-        console.log(outputString)
+        logger.info(outputString)
 
         assert.equal(false, checkFlag)
     })
@@ -81,7 +84,7 @@ describe("table", function() {
                 checkFlag = true
         });
 
-        console.log(outputString)
+        logger.info(outputString)
 
         assert.equal(false, checkFlag)
     })
@@ -96,7 +99,7 @@ describe("table", function() {
                 checkFlag = true
         });
 
-        console.log(outputString)
+        logger.info(outputString)
 
         assert.equal(false, checkFlag)
     })
@@ -109,7 +112,7 @@ describe("table", function() {
         if (outputString.status)
             checkFlag = true
 
-        console.log(outputString)
+        logger.info(outputString)
 
         assert.equal(true, checkFlag)
     })

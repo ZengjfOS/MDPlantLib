@@ -1,5 +1,8 @@
 const fs = require('fs');
 const assert = require('assert')
+const loggerjs = require('../../lib/logger')
+
+const logger = new loggerjs.Logger("example test")
 
 function loadJsonDataset(filePath, jsonDatasetName) {
 
@@ -12,7 +15,7 @@ function loadJsonDataset(filePath, jsonDatasetName) {
 
         tableEntry = eval('config.' + jsonDatasetName)
     } catch (err) {
-        console.log(`Error reading file from disk: ${err}`);
+        logger.info(`Error reading file from disk: ${err}`);
         tableEntry = {"title": "can't get data", "sets": []}
     }
 
@@ -24,28 +27,28 @@ async function MDPlantLibTestSample(jsonFilePath, jsonDatasetName, doWork) {
     let dataset = loadJsonDataset(jsonFilePath, jsonDatasetName)
 
     if ((!dataset.hasOwnProperty("enable")) || dataset.enable) {
-        console.log("[config] start dataset: " + dataset.title)
+        logger.info("[config] start dataset: " + dataset.title)
         for (let i = 0; i < dataset.sets.length; i++) {
             let data = dataset.sets[i]
 
-            console.log("----------------------start mdplant unit test--------------------------------- ")
-            console.log("[config] " + data.title)
+            logger.info("----------------------start mdplant unit test--------------------------------- ")
+            logger.info("[config] " + data.title)
             if (data.hasOwnProperty("description"))
-                console.log("[config] " + data.description)
+                logger.info("[config] " + data.description)
 
             if ((!data.hasOwnProperty("enable")) || data.enable) {
                 let runFlag = doWork(data)
 
-                console.log("[config] return runFlag: " + runFlag)
+                logger.info("[config] return runFlag: " + runFlag)
                 assert.equal(true, runFlag);
             } else {
-                console.log("[config] skip dataset item: " + data.title)
+                logger.info("[config] skip dataset item: " + data.title)
             }
 
-            console.log("------------------------end mdplant unit test--------------------------------- ")
+            logger.info("------------------------end mdplant unit test--------------------------------- ")
         }
     } else {
-        console.log("[config] skip dataset: " + dataset.title)
+        logger.info("[config] skip dataset: " + dataset.title)
     }
 }
 

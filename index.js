@@ -7,6 +7,7 @@ const pastejs = require('./lib/paste.js')
 const listjs = require('./lib/list.js')
 const projectjs = require('./lib/project.js')
 const menujs = require('./lib/menu.js')
+const loggerjs = require('./lib/logger.js')
 
 // 向外输入格式转换函数
 module.exports = {
@@ -41,4 +42,7 @@ module.exports = {
 
     // lib/menu.js
     generateMenu: menujs.generateMenu,
+
+    // lig/logger.js
+    Logger:loggerjs.Logger,
 }

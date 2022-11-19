@@ -1,38 +1,42 @@
 const assert = require('assert')
 const mdplantlibtest = require('./lib/MDPlantLibTest')
-require('./lib/log.js')
+const loggerjs = require('../lib/logger')
+loggerjs.Logger.logFile(__dirname + '/output/debug.log')
+
+const logger = new loggerjs.Logger("example test")
 
 describe("test example", function() {
 
     let globalVar = "global variable"
 
     before(() => {
-        console.log("do before operation")
-        console.log(globalVar)
+        logger.info("do before operation")
+        logger.info(globalVar)
+        logger.debug("%s, %s", "before", "logger print")
     })
 
     after(() => {
-        console.log("do after operation")
-        console.log(globalVar)
+        logger.info("do after operation")
+        logger.info(globalVar)
     })
 
     it('check index', () => {
         assert.equal(-1, [1, 2, 3].indexOf(5))
-        console.log("check " + globalVar)
+        logger.info("check " + globalVar)
     })
 
     it('check value', () => {
         assert.equal(1, 1)
-        console.log("check " + globalVar)
+        logger.info("check " + globalVar)
     })
 
     it('check list', () => {
-        console.log("start check list")
+        logger.info("start check list")
         mdplantlibtest.MDPlantLibTestSample("test/refers/0001_list.json", "dataset", data => {
-            console.log(data)
+            logger.info(data)
 
             return true
         })
-        console.log("end check list")
+        logger.info("end check list")
     })
 })

@@ -2,3 +2,4 @@ package-lock.json
 node_modules
 test/output/*
 !test/output/empty.txt
+.DS_Store

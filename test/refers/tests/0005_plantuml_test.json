@@ -1,0 +1,66 @@
+{
+    "convert2SequenceDiagram": {
+        "title": "list to sequence diagram",
+        "enable": true,
+        "sets": [
+            {
+                "title": "list to sequence diagram",
+                "enable": true,
+                "input": [
+                    "* main.c",
+                    "  * program1()",
+                    "    * text()",
+                    "  * program2()",
+                    "    * text2()",
+                    "    * program.c",
+                    "      * text3()",
+                    "  * program4()",
+                    "    * text.c",
+                    "      * text4()"
+                ],
+                "content": [
+                    "actor -> main.c :  program1()",
+                    "main.c -> main.c :  text()",
+                    "main.c -> actor",
+                    "actor -> main.c :  program2()",
+                    "main.c -> main.c :  text2()",
+                    "main.c -> program.c :  text3()",
+                    "program.c -> main.c",
+                    "main.c -> actor",
+                    "actor -> main.c :  program4()",
+                    "main.c -> text.c :  text4()",
+                    "text.c -> main.c",
+                    "main.c -> actor"
+                ],
+                "checkType": "status|content"
+            }
+        ]
+    },
+    "isPlantuml": {
+        "title": "check is plantuml",
+        "enable": true,
+        "sets": [
+            {
+                "title": "check is plantuml",
+                "enable": true,
+                "input": [
+                    "```plantuml",
+                    "* main.c",
+                    "  * program1()",
+                    "    * text()",
+                    "  * program2()",
+                    "    * text2()",
+                    "    * program.c",
+                    "      * text3()",
+                    "  * program4()",
+                    "    * text.c",
+                    "      * text4()",
+                    "```"
+                ],
+                "content": [
+                ],
+                "checkType": "status"
+            }
+        ]
+    }
+}

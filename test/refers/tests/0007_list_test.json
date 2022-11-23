@@ -1,0 +1,143 @@
+{
+    "convert2List": {
+        "title": "convert to list",
+        "enable": true,
+        "sets": [
+            {
+                "title": "convert to list 1",
+                "enable": true,
+                "input": [
+                    "zengjf https://zengjf.fun"
+                ],
+                "content": [
+                    "* [zengjf](https://zengjf.fun)"
+                ],
+                "checkType": "status|content"
+            },
+            {
+                "title": "convert to list 2",
+                "enable": true,
+                "input": [
+                    "* [zengjf](https://zengjf.fun)"
+                ],
+                "content": [
+                    "zengjf https://zengjf.fun"
+                ],
+                "checkType": "status|content"
+            },
+            {
+                "title": "convert to list 3",
+                "enable": true,
+                "input": [
+                    "lib/list.js"
+                ],
+                "content": [
+                    "* [list.js](lib/list.js)"
+                ],
+                "checkType": "status|content"
+            },
+            {
+                "title": "convert to list 4",
+                "enable": true,
+                "input": [
+                    "* [list.js](lib/list.js)"
+                ],
+                "content": [
+                    "lib/list.js"
+                ],
+                "checkType": "status|content"
+            },
+            {
+                "title": "convert to list 5",
+                "enable": true,
+                "input": [
+                    "lib/list.png"
+                ],
+                "content": [
+                    "![list.png](lib/list.png)"
+                ],
+                "checkType": "status|content"
+            },
+            {
+                "title": "convert to list 5",
+                "enable": true,
+                "input": [
+                    "![list.js](lib/list.png)"
+                ],
+                "content": [
+                    "lib/list.png"
+                ],
+                "checkType": "status|content"
+            },
+            {
+                "title": "convert to list 6",
+                "enable": true,
+                "input": [
+                    "lib/list .png"
+                ],
+                "content": [
+                    "![list .png](lib/list%20.png)"
+                ],
+                "checkType": "status|content"
+            },
+            {
+                "title": "convert to list 7",
+                "enable": true,
+                "input": [
+                    "![list .js](lib/list%20_%20.png)"
+                ],
+                "content": [
+                    "lib/list _ .png"
+                ],
+                "checkType": "status|content"
+            }
+        ]
+    },
+    "isList": {
+        "title": "check is list",
+        "enable": true,
+        "sets": [
+            {
+                "title": "check is list 1",
+                "enable": true,
+                "input": [
+                    "tt src/0002_tt/README.md"
+                ],
+                "content": [
+                ],
+                "checkType": "status"
+            },
+            {
+                "title": "check is list 2",
+                "enable": true,
+                "input": [
+                    "table src/0002_tt/README.json"
+                ],
+                "content": [
+                ],
+                "status": false,
+                "checkType": "status"
+            },
+            {
+                "title": "check is list 3",
+                "enable": true,
+                "input": [
+                    "src/0002_tt/README.json"
+                ],
+                "content": [
+                ],
+                "checkType": "status"
+            },
+            {
+                "title": "check is list 4",
+                "enable": true,
+                "input": [
+                    "docs/0002_unit_test.md"
+                ],
+                "content": [
+                ],
+                "checkType": "status"
+            }
+        ]
+    }
+}

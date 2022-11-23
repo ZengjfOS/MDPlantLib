@@ -1,6 +1,6 @@
 {
   "name": "mdplantlib",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "MDPlantLib is lib for VSCode MDPlant Extension",
   "main": "index.js",
   "scripts": {

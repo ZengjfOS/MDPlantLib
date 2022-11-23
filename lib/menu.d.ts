@@ -1,9 +1,12 @@
 /**
  *
  * @param {string[]} contentArray
- * @returns {string[]}
+ * @returns
  */
-export function generateMenu(contentArray: string[]): string[];
+export function generateMenu(contentArray: string[]): {
+    status: boolean;
+    content: string;
+};
 /**
  *
  * @param {string[]} textBlock
@@ -13,6 +16,5 @@ export function generateMenu(contentArray: string[]): string[];
  */
 export function isMenu(textBlock: string[], rootPath: string, cursorOffset: number): {
     status: boolean;
-    error: boolean;
-    info: string;
+    content: string;
 };

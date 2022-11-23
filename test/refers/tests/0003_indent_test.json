@@ -1,0 +1,114 @@
+{
+    "isindent": {
+        "title": "check is indent",
+        "enable": true,
+        "sets": [
+            {
+                "title": "convert to tree",
+                "enable": true,
+                "input": [
+                    "```",
+                    "* title",
+                    "  * program 1",
+                    "    * text 1",
+                    "  * program 2",
+                    "    * text 2",
+                    "    * program 3",
+                    "      * text 3",
+                    "      * program 4",
+                    "        * text 4",
+                    "    * program 5",
+                    "      * text 5",
+                    "  * program 6",
+                    "    * text 6",
+                    "```"
+                ],
+                "content": [
+                ],
+                "checkType": "status"
+            }
+        ]
+    },
+    "convert2Tree": {
+        "title": "convert to tree",
+        "enable": true,
+        "sets": [
+            {
+                "title": "convert to tree",
+                "enable": true,
+                "input": [
+                    "* title",
+                    "  * program 1",
+                    "    * text 1",
+                    "  * program 2",
+                    "    * text 2",
+                    "    * program 3",
+                    "      * text 3",
+                    "      * program 4",
+                    "        * text 4",
+                    "    * program 5",
+                    "      * text 5",
+                    "  * program 6",
+                    "    * text 6"
+                ],
+                "content": [
+                    "* title",
+                    "  ├── program 1",
+                    "  │   └── text 1",
+                    "  ├── program 2",
+                    "  │   ├── text 2",
+                    "  │   ├── program 3",
+                    "  │   │   ├── text 3",
+                    "  │   │   └── program 4",
+                    "  │   │       └── text 4",
+                    "  │   └── program 5",
+                    "  │       └── text 5",
+                    "  └── program 6",
+                    "      └── text 6"
+                ],
+                "checkType": "content|status"
+            }
+        ]
+    },
+    "revert2Tree": {
+        "title": "convert to tree",
+        "enable": true,
+        "sets": [
+            {
+                "title": "convert to tree",
+                "enable": true,
+                "input": [
+                    "* title",
+                    "  ├── program 1",
+                    "  │   └── text 1",
+                    "  ├── program 2",
+                    "  │   ├── text 2",
+                    "  │   ├── program 3",
+                    "  │   │   ├── text 3",
+                    "  │   │   └── program 4",
+                    "  │   │       └── text 4",
+                    "  │   └── program 5",
+                    "  │       └── text 5",
+                    "  └── program 6",
+                    "      └── text 6"
+                ],
+                "content": [
+                    "* title",
+                    "  * program 1",
+                    "    * text 1",
+                    "  * program 2",
+                    "    * text 2",
+                    "    * program 3",
+                    "      * text 3",
+                    "      * program 4",
+                    "        * text 4",
+                    "    * program 5",
+                    "      * text 5",
+                    "  * program 6",
+                    "    * text 6"
+                ],
+                "checkType": "content|status"
+            }
+        ]
+    }
+}

@@ -1,7 +1,0 @@
-* main.c
-  * test()
-    * add()
-      * add.c
-        * add()
-  * find()
-    * search()

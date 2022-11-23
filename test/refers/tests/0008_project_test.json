@@ -1,0 +1,438 @@
+{
+    "parsePath": {
+        "title": "parse path",
+        "enable": true,
+        "sets": [
+            {
+                "title": "parse path 1",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 1,
+                    "mainPath": "",
+                    "subPath": "src/0002_bring_up",
+                    "subSrcPath": ""
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 2",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 1,
+                    "mainPath": "",
+                    "subPath": "src/0002_bring_up",
+                    "subSrcPath": "docs"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 3",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/images"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 1,
+                    "mainPath": "",
+                    "subPath": "src/0002_bring_up",
+                    "subSrcPath": "docs"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 4",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/refers"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 1,
+                    "mainPath": "",
+                    "subPath": "src/0002_bring_up",
+                    "subSrcPath": "docs"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 5",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 1,
+                    "mainPath": "src/0002_bring_up/",
+                    "subPath": "src/0002_bring_up/docs/0003_bring_up",
+                    "subSrcPath": ""
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 6",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 1,
+                    "mainPath": "src/0002_bring_up/docs/0003_bring_up/",
+                    "subPath": "src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up",
+                    "subSrcPath": ""
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 7",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up/docs"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 1,
+                    "mainPath": "src/0002_bring_up/docs/0003_bring_up/",
+                    "subPath": "src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up",
+                    "subSrcPath": "docs"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 8",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up/docs/images"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 1,
+                    "mainPath": "src/0002_bring_up/docs/0003_bring_up/",
+                    "subPath": "src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up",
+                    "subSrcPath": "docs"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 9",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up/docs/refers"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 1,
+                    "mainPath": "src/0002_bring_up/docs/0003_bring_up/",
+                    "subPath": "src/0002_bring_up/docs/0003_bring_up/docs/0004_bring_up",
+                    "subSrcPath": "docs"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 10",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0071_typescript_declare.md"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 2,
+                    "mainPath": "",
+                    "subPath": "src/0002_bring_up/",
+                    "subSrcPath": "docs"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 11",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/docs/0071_typescript_declare.md"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 2,
+                    "mainPath": "",
+                    "subPath": "",
+                    "subSrcPath": "docs"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 12",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/src/0071_typescript_declare.md"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 2,
+                    "mainPath": "",
+                    "subPath": "src/0002_bring_up/docs/0003_bring_up/",
+                    "subSrcPath": "src",
+                    "subrelativePath": "src/0071_typescript_declare.md"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 13",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/src/images/0071_typescript_declare.png"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 2,
+                    "mainPath": "",
+                    "subPath": "src/0002_bring_up/docs/0003_bring_up/",
+                    "subSrcPath": "src",
+                    "subrelativePath": "src/images/0071_typescript_declare.png"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 14",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0003_bring_up/src/refers/0071_typescript_declare.txt"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 2,
+                    "mainPath": "",
+                    "subPath": "src/0002_bring_up/docs/0003_bring_up/",
+                    "subSrcPath": "src",
+                    "subrelativePath": "src/refers/0071_typescript_declare.txt"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 15",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/docs/0005_bring_up/README.md"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 3,
+                    "mainPath": "src/0002_bring_up/",
+                    "subPath": "src/0002_bring_up/docs/0005_bring_up/",
+                    "subSrcPath": "docs"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 16",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/src/0002_bring_up/README.md"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 3,
+                    "mainPath": "",
+                    "subPath": "src/0002_bring_up/",
+                    "subSrcPath": "src"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse path 16",
+                "enable": true,
+                "input": [
+                    "/home/zengjf/zengjf/github/android",
+                    "/home/zengjf/zengjf/github/android/README.md"
+                ],
+                "property": {
+                    "status": true,
+                    "pathType": 3,
+                    "mainPath": "",
+                    "subPath": "",
+                    "subSrcPath": ""
+                },
+                "checkType": "property"
+
+            }
+        ]
+    },
+    "parseTextBlock": {
+        "title": "parse text block",
+        "enable": false,
+        "sets": [
+            {
+                "title": "parse text block 1",
+                "enable": true,
+                "input": [
+                    "docs/0002_unit_test.md"
+                ],
+                "property": {
+                    "status": true,
+                    "type": 2,
+                    "content": ""
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse text block 2",
+                "enable": true,
+                "input": [
+                    "* [0002_unit_test.md](docs/0002_unit _test.md)"
+                ],
+                "property": {
+                    "status": true,
+                    "type": 2,
+                    "content": ""
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse text block 3",
+                "enable": true,
+                "input": [
+                    "0002_unit_test.md docs/0002_在unit_test.md"
+                ],
+                "property": {
+                    "status": true,
+                    "type": 2,
+                    "content": ""
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse text block 4",
+                "enable": true,
+                "input": [
+                    "0002_unit_不test.md http://zengjf.fun/docs/0002_unit_test.md"
+                ],
+                "property": {
+                    "status": true,
+                    "type": 2,
+                    "content": ""
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse text block 5",
+                "enable": true,
+                "input": [
+                    "0002_unit"
+                ],
+                "property": {
+                    "status": false,
+                    "type": 0,
+                    "content": ""
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse text block 6",
+                "enable": true,
+                "input": [
+                    "table 4*5"
+                ],
+                "property": {
+                    "status": true,
+                    "type": 3,
+                    "content": "table 4*5"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse text block 7",
+                "enable": true,
+                "input": [
+                    "table test/refers/0004_table.json"
+                ],
+                "property": {
+                    "status": true,
+                    "type": 3,
+                    "content": "table test/refers/0004_table.json"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse text block 8",
+                "enable": true,
+                "input": [
+                    "NO.|文件名称|摘要",
+                    "zengjf | [](zengjf.fun)"
+                ],
+                "property": {
+                    "status": true,
+                    "type": 3,
+                    "content": "docs"
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse text block 9",
+                "enable": true,
+                "input": [
+                    "```plantuml",
+                    "zengjf | [](zengjf.fun)"
+                ],
+                "property": {
+                    "status": true,
+                    "type": 4,
+                    "content": ""
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse text block 10",
+                "enable": true,
+                "input": [
+                    "```",
+                    "* add(void)"
+                ],
+                "property": {
+                    "status": true,
+                    "type": 5,
+                    "content": ""
+                },
+                "checkType": "property"
+            },
+            {
+                "title": "parse text block 11",
+                "enable": true,
+                "input": [
+                    "```",
+                    "* add(void)",
+                    "  └── file"
+                ],
+                "property": {
+                    "status": true,
+                    "type": 5,
+                    "content": ""
+                },
+                "checkType": "property"
+            }
+        ]
+    }
+}

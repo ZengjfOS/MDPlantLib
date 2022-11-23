@@ -1,0 +1,20 @@
+{
+    "dataset": {
+        "title": "example",
+        "enable": true,
+        "sets": [
+            {
+                "title": "example",
+                "enable": true,
+                "cursor": 1,
+                "input": [
+                    "zengjf http://zengjf.fun"
+                ],
+                "content": [
+                    "zengjf http://zengjf.fun"
+                ],
+                "checkType": "content|status"
+            }
+        ]
+    }
+}

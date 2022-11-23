@@ -2,35 +2,50 @@
  *
  * @param {string | null | undefined} outputFile
  * @param {string} subProjectDocsDir
- * @returns {string}
+ * @returns
  */
-export function refreshReadmeDocsTable(outputFile: string | null | undefined, subProjectDocsDir: string): string;
+export function refreshReadmeDocsTable(outputFile: string | null | undefined, subProjectDocsDir: string): {
+    status: boolean;
+    content: string;
+};
 /**
  *
  * @param {string} configPath
  * @param {string} table json key
- * @returns {string}
+ * @returns
  */
-export function convertJSON2Table(configPath: string, table: string): string;
+export function convertJSON2Table(configPath: string, table: string): {
+    status: boolean;
+    content: string;
+};
 /**
  *
  * @param {string} configPath
- * @returns {string}
+ * @returns
  */
-export function convertExcel2Table(configPath: string): string;
+export function convertExcel2Table(configPath: string): {
+    status: boolean;
+    content: string;
+};
 /**
  *
  * @param {string} lineValue
- * @returns {string}
+ * @returns
  */
-export function convertRowColume2Table(lineValue: string): string;
+export function convertRowColume2Table(lineValue: string): {
+    status: boolean;
+    content: string;
+};
 /**
  *
  * @param {string} lineValue
  * @param {string} rootPath
  * @returns
  */
-export function convert2Table(lineValue: string, rootPath: string): string;
+export function convert2Table(lineValue: string, rootPath: string): {
+    status: boolean;
+    content: string;
+};
 /**
  *
  * @param {string[]} textBlock
@@ -40,14 +55,16 @@ export function convert2Table(lineValue: string, rootPath: string): string;
  */
 export function isTable(textBlock: string[], rootPath: string, cursorOffset: number): {
     status: boolean;
-    error: boolean;
-    info: string;
+    content: string;
 };
 /**
  *
  * @param {string} rootPath
  * @param {string} relativePath
  * @param {string} suffix
- * @returns {string}
+ * @returns
  */
-export function generateIndexTable(rootPath: string, relativePath: string, suffix: string): string;
+export function generateIndexTable(rootPath: string, relativePath: string, suffix?: string): {
+    status: boolean;
+    content: string;
+};

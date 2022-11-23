@@ -1,0 +1,245 @@
+{
+    "generateIndexTable": {
+        "title": "generate index table",
+        "enable": true,
+        "sets": [
+            {
+                "title": "generate index table",
+                "enable": true,
+                "input": [
+                    "lib/res/mainProjectTemplate/src/0000_Template",
+                    "docs"
+                ],
+                "content": [
+                    "NO.  |文件名称",
+                    ":---:|:--",
+                    "0002 | [green_image.md](docs/0002_green_image.md)",
+                    "0001 | [red_image.md](docs/0001_red_image.md)"
+                ],
+                "checkType": "content|status"
+            }
+        ]
+    },
+    "refreshReadmeDocsTable": {
+        "title": "refresh readme docs table",
+        "enable": true,
+        "sets": [
+            {
+                "title": "refresh main readme",
+                "enable": true,
+                "input": [
+                    "test/refers/0008_README.md",
+                    "test/output/0008_main_README.md",
+                    "lib/res/mainProjectTemplate/src"
+                ],
+                "content": [
+                    "NO.  |文件名称|摘要",
+                    ":---:|:--|:--",
+                    "0000 | [Template](src/0000_Template/README.md) | 这个是一个plan的文档模板目录示例架构"
+                ],
+                "checkType": "content|status"
+            },
+            {
+                "title": "refresh sub readme",
+                "enable": true,
+                "input": [
+                    "test/refers/0008_README.md",
+                    "test/output/0008_sub_README.md",
+                    "lib/res/subProjectTemplate/docs"
+                ],
+                "content": [
+                    "NO.  |文件名称|摘要",
+                    ":---:|:--|:--",
+                    "0001 | [template](docs/0001_template.md) | write your first doc at here..."
+                ],
+                "checkType": "content|status"
+            }
+        ]
+    },
+    "convert2Table": {
+        "title": "check convert to table",
+        "enable": true,
+        "sets": [
+            {
+                "title": "table from row colume",
+                "enable": true,
+                "input": [
+                    "table 4*5"
+                ],
+                "content": [
+                    "NO.   | col 2 | col 3 | col 4 | col 5",
+                    "------|-------|-------|-------|------",
+                    " 1    |       |       |       |      ",
+                    " 2    |       |       |       |      ",
+                    " 3    |       |       |       |      ",
+                    " 4    |       |       |       |      "
+                ],
+                "checkType": "content|status"
+            },
+            {
+                "title": "table from excel file convert",
+                "enable": true,
+                "input": [
+                    "table test/refers/0004_excel.xls"
+                ],
+                "content": [
+                    "NO.  | 版本 | 内存",
+                    "-----|-----|-----",
+                    "1 | a | 2+32",
+                    "2 | b | 3+32",
+                    "3 | c | 4+64",
+                    "",
+                    "NO.  | 版本 | 内存",
+                    "-----|-----|-----",
+                    "1 | a | 2+32",
+                    "2 | b | 3+32",
+                    "3 | c | 4+64"
+                ],
+                "checkType": "content|status"
+            },
+            {
+                "title": "table from csv file convert",
+                "enable": true,
+                "input": [
+                    "table test/refers/0004_table.csv"
+                ],
+                "content": [
+                    "NO.  | 简介 | 链接 | empty",
+                    "-----|-----|-----|-----",
+                    "0001 | zengjf | 16",
+                    "0002 | 16 | 16 | zengjf",
+                    "0003 | 16 | zengjf",
+                    "0004 | zengjf | 16",
+                    "0005 | 16",
+                    "0006 | zengjf",
+                    "0007 | zengjf | 16"
+                ],
+                "checkType": "content|status"
+            },
+            {
+                "title": "table from json file convert",
+                "enable": true,
+                "input": [
+                    "table test/refers/0004_table.json"
+                ],
+                "content": [
+                    "NO.  | 简介 | 链接",
+                    "-----|-----|-----",
+                    "0001 | zengjf | [zengjf](http://zengjf.fun)",
+                    "0002 | * [zengjf](http://zengjf.fun)<br> * [zengjf](http://zengjf.fun) | zengjf",
+                    "0003 | [zengjf](http://zengjf.fun) | zengjf",
+                    "0004 | zengjf | * [zengjf](http://zengjf.fun)<br> * [zengjf](http://zengjf.fun)",
+                    "0005 | * [zengjf](http://zengjf.fun)<br> * [zengjf](http://zengjf.fun)",
+                    "0006 | zengjf",
+                    "0007 | zengjf | * [zengjf](http://zengjf.fun)<br> * [zengjf](http://zengjf.fun)"
+                ],
+                "checkType": "content|status"
+            }
+        ]
+    },
+    "isTable": {
+        "title": "check text line is Table",
+        "enable": true,
+        "sets": [
+            {
+                "title": "table with xls",
+                "enable": true,
+                "input": [
+                    "table test/refers/0004_excel.xls"
+                ],
+                "content": [
+                    "table test/refers/0004_excel.xls"
+                ],
+                "checkType": "content|status"
+            },
+            {
+                "title": "table with xls and space",
+                "enable": true,
+                "input": [
+                    "   table    test/refers/0004_excel.xls   "
+                ],
+                "content": [
+                    "table    test/refers/0004_excel.xls"
+                ],
+                "checkType": "content|status"
+            },
+            {
+                "title": "table with row x colume",
+                "enable": true,
+                "input": [
+                    "table 4x5"
+                ],
+                "content": [
+                    "table 4x5"
+                ],
+                "checkType": "content|status"
+            },
+            {
+                "title": "table with row x colume with space",
+                "enable": true,
+                "input": [
+                    "  table   4x5  "
+                ],
+                "content": [
+                    "table   4x5"
+                ],
+                "checkType": "content|status"
+            },
+            {
+                "title": "table with row * colume",
+                "enable": true,
+                "input": [
+                    "table 4*5"
+                ],
+                "content": [
+                    "table 4*5"
+                ],
+                "checkType": "content|status"
+            },
+            {
+                "title": "table with row * colume with space",
+                "enable": true,
+                "input": [
+                    "   table   4 * 5  "
+                ],
+                "content": [
+                    "table   4 * 5"
+                ],
+                "checkType": "content|status"
+            },
+            {
+                "title": "table with row colume",
+                "enable": true,
+                "input": [
+                    "table 4 5"
+                ],
+                "content": [
+                    "table 4 5"
+                ],
+                "checkType": "content|status"
+            },
+            {
+                "title": "table with row colume with space",
+                "enable": true,
+                "input": [
+                    "   table    4    5   "
+                ],
+                "content": [
+                    "table    4    5"
+                ],
+                "checkType": "content|status"
+            },
+            {
+                "title": "table with row colume with space and :",
+                "enable": true,
+                "input": [
+                    "   table:    4    5   "
+                ],
+                "content": [
+                    "table:    4    5"
+                ],
+                "checkType": "content|status"
+            }
+        ]
+    }
+}

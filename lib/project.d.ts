@@ -57,14 +57,8 @@ export namespace projectPathTypeEnum {
 export function parseTextBlock(textBlock: string[], rootPath: string, cursorOffset: number): {
     status: boolean;
     type: number;
-    info: any;
-    error: any;
+    content: string;
 };
-/**
- *
- * @param {string} lineText
- */
-export function isTextBlockBoundary(lineText: string): boolean;
 export namespace projectTextBlockTypeEnum {
     const none_1: number;
     export { none_1 as none };

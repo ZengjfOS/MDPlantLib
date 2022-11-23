@@ -1,4 +1,5 @@
 packageName = MDPlantLib
+countLine = $(shell find test lib -iname "*.js" | xargs wc -l | tail -n 1 | awk -F ' ' '{print $$1}')
 
 examplejs   = test/0001_example.js
 indexjs     = test/0002_index.js
@@ -22,6 +23,9 @@ dts: clean
 	@echo "generating all .d.ts file"
 	@-tsc --allowJs --declaration index.js 2>&1 > /dev/null
 	@echo "generated all .d.ts file"
+
+count:
+	@echo $(countLine) line for valid working code :\)
 
 clean:
 	@find * -iname "*.d.ts" | xargs -I {} rm {}

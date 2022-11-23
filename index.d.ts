@@ -12,7 +12,7 @@ export const convert2Table: typeof tablejs.convert2Table;
 export const refreshReadmeDocsTable: typeof tablejs.refreshReadmeDocsTable;
 export const generateIndexTable: typeof tablejs.generateIndexTable;
 export const convert2Tree: typeof indentjs.convert2Tree;
-export const revert2Tree: typeof indentjs.revert2Tree;
+export const revert2List: typeof indentjs.revert2List;
 export const saveClipboardImage: typeof pastejs.saveClipboardImage;
 export const convert2List: typeof listjs.convert2List;
 export const projectPathTypeEnum: {
@@ -21,12 +21,6 @@ export const projectPathTypeEnum: {
     file: number;
     readme: number;
 };
-export const newSubProjectWorkFile: typeof projectjs.newSubProjectWorkFile;
-export const newSubProject: typeof projectjs.newSubProject;
-export const newProject: typeof projectjs.newProject;
-export const parsePath: typeof projectjs.parsePath;
-export const parseTextBlock: typeof projectjs.parseTextBlock;
-export const isTextBlockBoundary: typeof projectjs.isTextBlockBoundary;
 export const projectTextBlockTypeEnum: {
     none: number;
     menu: number;
@@ -35,5 +29,10 @@ export const projectTextBlockTypeEnum: {
     plantuml: number;
     indent: number;
 };
+export const newSubProjectWorkFile: typeof projectjs.newSubProjectWorkFile;
+export const newSubProject: typeof projectjs.newSubProject;
+export const newProject: typeof projectjs.newProject;
+export const parsePath: typeof projectjs.parsePath;
+export const parseTextBlock: typeof projectjs.parseTextBlock;
 export const generateMenu: typeof menujs.generateMenu;
 export const Logger: typeof loggerjs.Logger;

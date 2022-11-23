@@ -1,29 +1,17 @@
-const assert = require('assert')
-const fs = require("fs")
 const menujs = require('../lib/menu.js')
-const loggerjs = require("../lib/logger")
-loggerjs.Logger.logFile(__dirname + '/output/debug.log')
-
-const logger = new loggerjs.Logger("menu test")
+const mdplantlibtest = require('./lib/MDPlantLibTest')
 
 describe("menu", function() {
 
     it('generate menu', () => {
-        const fileContent = fs.readFileSync("test/refers/0009_menu.md", 'utf8').split(/\r?\n/);
-        let checkFlag = false
-        let outputString = menujs.generateMenu(fileContent)
+        mdplantlibtest.MDPlantLibTestSample("test/refers/tests/0009_menu_test.json", "generateMenu", data => {
+            return menujs.generateMenu(data.input)
+        })
+    })
 
-        for (let i = 0; i < outputString.length; i++) {
-            let lineText = outputString[i]
-            if (!lineText.trim().startsWith("* ")) {
-                checkFlag = true
-                break
-            }
-        }
-
-        logger.info(outputString)
-
-        assert.equal(false, checkFlag)
-
+    it('is menu', () => {
+        mdplantlibtest.MDPlantLibTestSample("test/refers/tests/0009_menu_test.json", "isMenu", data => {
+            return menujs.isMenu(data.input, ".", 0)
+        })
     })
 })

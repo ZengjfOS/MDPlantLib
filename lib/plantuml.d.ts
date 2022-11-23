@@ -1,23 +1,13 @@
 /**
  *
- * @param {number} level
- * @param {number} start
- * @param {number} end
  * @param {string[]} contentArray
- * @param {number} columnInterval
- * @param {boolean} debug
  * @param {number} skipLevel
- * @param {string[]} preActor
  * @returns
  */
-export function listToSequenceDiagramWithSkip(level: number, start: number, end: number, contentArray: string[], columnInterval: number, debug: boolean, skipLevel: number, preActor?: string[]): void;
-/**
- *
- * @param {string[]} contentArray
- * @param {number} skipLevel
- * @returns {string[]}
- */
-export function convert2SequenceDiagram(contentArray: string[], skipLevel: number): string[];
+export function convert2SequenceDiagram(contentArray: string[], skipLevel: number): {
+    status: boolean;
+    content: string;
+};
 /**
  *
  * @param {string} umlString
@@ -36,6 +26,5 @@ export function getHTTPPlantumlImage(umlString: string, plantumlServer: string, 
  */
 export function isPlantuml(textBlock: string[], rootPath: string, cursorOffset: number): false | {
     status: boolean;
-    error: boolean;
-    info: string;
+    content: string;
 };

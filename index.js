@@ -11,7 +11,7 @@ const loggerjs = require('./lib/logger.js')
 
 // 向外输入格式转换函数
 module.exports = {
-    // lib/mdplant.js
+    // lib/plantuml.js
     convert2SequenceDiagram: plantumljs.convert2SequenceDiagram,
     getHTTPPlantumlImage: plantumljs.getHTTPPlantumlImage,
 
@@ -22,7 +22,7 @@ module.exports = {
 
     // lib/indent.js
     convert2Tree: indentjs.convert2Tree,
-    revert2Tree: indentjs.revert2Tree,
+    revert2List: indentjs.revert2List,
 
     // lib/paste.js
     saveClipboardImage: pastejs.saveClipboardImage,
@@ -32,13 +32,12 @@ module.exports = {
 
     // lib/project.js
     projectPathTypeEnum: projectjs.projectPathTypeEnum,
+    projectTextBlockTypeEnum: projectjs.projectTextBlockTypeEnum,
     newSubProjectWorkFile: projectjs.newSubProjectWorkFile,
     newSubProject: projectjs.newSubProject,
     newProject: projectjs.newProject,
     parsePath: projectjs.parsePath,
     parseTextBlock: projectjs.parseTextBlock,
-    isTextBlockBoundary: projectjs.isTextBlockBoundary,
-    projectTextBlockTypeEnum: projectjs.projectTextBlockTypeEnum,
 
     // lib/menu.js
     generateMenu: menujs.generateMenu,

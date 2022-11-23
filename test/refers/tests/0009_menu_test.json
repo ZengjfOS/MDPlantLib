@@ -1,0 +1,57 @@
+{
+    "generateMenu": {
+        "title": "generate menu",
+        "enable": true,
+        "sets": [
+            {
+                "title": "generate menu",
+                "enable": true,
+                "input": [
+                    "# README",
+                    "",
+                    "# docs",
+                    "",
+                    "NO.|文件名称|摘要",
+                    ":--:|:--|:--",
+                    "",
+                    "# 标题1",
+                    "",
+                    "## 小标题1.1",
+                    "",
+                    "# 标题2",
+                    "",
+                    "## 小标题2.1",
+                    ""
+                ],
+                "content": [
+                    "* [docs](#docs)",
+                    "* [标题1](#标题1)",
+                    "  * [小标题1.1](#小标题11)",
+                    "* [标题2](#标题2)",
+                    "  * [小标题2.1](#小标题21)"
+                ],
+                "checkType": "status|content"
+            }
+        ]
+    },
+    "isMenu": {
+        "title": "check is menu",
+        "enable": true,
+        "sets": [
+            {
+                "title": "check is menu",
+                "enable": true,
+                "input": [
+                    "* [docs](#docs)",
+                    "* [标题1](#标题1)",
+                    "  * [小标题1.1](#小标题11)",
+                    "* [标题2](#标题2)",
+                    "  * [小标题2.1](#小标题21)"
+                ],
+                "content": [
+                ],
+                "checkType": "status"
+            }
+        ]
+    }
+}

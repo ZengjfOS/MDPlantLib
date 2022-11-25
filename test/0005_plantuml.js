@@ -5,7 +5,7 @@ const plantumljs = require('../lib/plantuml.js')
 describe("plantuml", function() {
 
     it('get http svg image', () => {
-        plantumljs.getHTTPPlantumlImage('A -> B: Hello', "http://www.plantuml.com/plantuml", "png", "test/output/0005_uml.png", status => {
+        plantumljs.getHTTPPlantumlImage('A -> B: Hello', "http://www.plantuml.com/plantuml", "png", "test/output/0005_http_uml.png", status => {
             assert.equal(true, status)
         })
     })

@@ -60,6 +60,28 @@
                 "content": [
                 ],
                 "checkType": "status"
+            },
+            {
+                "title": "check is plantuml 2",
+                "enable": true,
+                "input": [
+                    "plantuml test/refers/0005_json.plantuml"
+                ],
+                "content": [
+                    "plantuml test/refers/0005_json.plantuml"
+                ],
+                "checkType": "status|content"
+            },
+            {
+                "title": "check is plantuml 3",
+                "enable": true,
+                "input": [
+                    "<!-- plantuml test/refers/0005_json.plantuml -->"
+                ],
+                "content": [
+                    "plantuml test/refers/0005_json.plantuml"
+                ],
+                "checkType": "status|content"
             }
         ]
     }

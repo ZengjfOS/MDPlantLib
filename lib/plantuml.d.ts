@@ -24,7 +24,7 @@ export function getHTTPPlantumlImage(umlString: string, plantumlServer: string, 
  * @param {number} cursorOffset
  * @returns
  */
-export function isPlantuml(textBlock: string[], rootPath: string, cursorOffset: number): false | {
+export function isPlantuml(textBlock: string[], rootPath: string, cursorOffset: number): {
     status: boolean;
     content: string;
 };
